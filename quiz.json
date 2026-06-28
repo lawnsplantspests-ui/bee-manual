@@ -2700,6 +2700,618 @@
   "cat": "Latin Names"
  },
  {
+  "q": "The jaws a bee uses to work wax, groom, and bite are called…",
+  "opts": [
+   "Mandibles",
+   "Ocelli",
+   "Tarsi",
+   "Spiracles"
+  ],
+  "a": 0,
+  "why": "Mandibles are the bee's jaws, used for comb work, grooming and defense.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "A worker bee usually dies after stinging a mammal because her stinger is…",
+  "opts": [
+   "Barbed and tears out of her body",
+   "Made of wax",
+   "Too short",
+   "Coated in venom"
+  ],
+  "a": 0,
+  "why": "Barbs anchor the worker's sting in skin; pulling away is fatal. A queen's sting is smooth.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "A queen can sting more than once because her stinger is…",
+  "opts": [
+   "Smooth (not barbed)",
+   "Longer",
+   "Hollow",
+   "Retractable into a pouch"
+  ],
+  "a": 0,
+  "why": "The queen's smooth stinger doesn't lodge, so she can reuse it (mainly on rival queens).",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Each large compound eye is made of thousands of units called…",
+  "opts": [
+   "Facets (ommatidia)",
+   "Ocelli",
+   "Antennae",
+   "Hamuli"
+  ],
+  "a": 0,
+  "why": "Compound eyes are built from many facets that together form an image.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "On each side, the front and hind wings are joined in flight by tiny hooks called…",
+  "opts": [
+   "Hamuli",
+   "Tarsi",
+   "Ocelli",
+   "Spiracles"
+  ],
+  "a": 0,
+  "why": "Hamuli link the wing pair so they beat as one, looking like two wings instead of four.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "How many pairs of antennae does a honey bee have?",
+  "opts": [
+   "One pair",
+   "Two pairs",
+   "Three pairs",
+   "None"
+  ],
+  "a": 0,
+  "why": "Bees have a single pair of segmented antennae, their main smell/touch organs.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "The honey bee stinger evolved from the female…",
+  "opts": [
+   "Ovipositor (egg-laying organ)",
+   "Proboscis",
+   "Antenna",
+   "Mandible"
+  ],
+  "a": 0,
+  "why": "Because the sting is a modified ovipositor, only females can sting.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Drones have especially large eyes mainly to…",
+  "opts": [
+   "Spot and chase queens during mating flights",
+   "See in the dark hive",
+   "Find flowers",
+   "Detect predators"
+  ],
+  "a": 0,
+  "why": "A drone's big eyes help him find a fast-flying virgin queen in the air.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Bee venom is stored in the…",
+  "opts": [
+   "Venom sac attached to the sting",
+   "Honey crop",
+   "Mandibular gland",
+   "Fat body"
+  ],
+  "a": 0,
+  "why": "The venom sac feeds the sting; barbs let a torn-out sting keep pumping venom.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Queen pheromone is produced mainly by the queen's…",
+  "opts": [
+   "Mandibular glands",
+   "Wax glands",
+   "Malpighian tubules",
+   "Spiracles"
+  ],
+  "a": 0,
+  "why": "The mandibular glands are the main source of the queen's pheromone blend.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Honey bees have an 'open' circulatory system, meaning hemolymph…",
+  "opts": [
+   "Flows freely through the body cavity",
+   "Is pumped through veins and arteries",
+   "Doesn't move at all",
+   "Is stored in the crop"
+  ],
+  "a": 0,
+  "why": "There are no closed vessels; hemolymph bathes the organs directly.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "The wax-producing glands are most active in workers that are…",
+  "opts": [
+   "Young house bees (before they forage)",
+   "Old foragers",
+   "Drones",
+   "The queen"
+  ],
+  "a": 0,
+  "why": "Wax glands on the abdomen peak before a worker graduates to foraging.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "A bee's tough outer shell (exoskeleton) is made largely of…",
+  "opts": [
+   "Chitin",
+   "Wax",
+   "Keratin",
+   "Calcium"
+  ],
+  "a": 0,
+  "why": "Chitin forms the protective, jointed exoskeleton of all arthropods.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "The middle body segment, where the wings and legs attach, is the…",
+  "opts": [
+   "Thorax",
+   "Abdomen",
+   "Head",
+   "Proboscis"
+  ],
+  "a": 0,
+  "why": "The thorax is the locomotion center, between the head and abdomen.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Royal jelly is secreted by which glands of nurse bees?",
+  "opts": [
+   "Hypopharyngeal glands",
+   "Wax glands",
+   "Nasonov gland",
+   "Venom gland"
+  ],
+  "a": 0,
+  "why": "Hypopharyngeal glands in the heads of nurse bees produce royal jelly.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "'Corbicula' is another name for the…",
+  "opts": [
+   "Pollen basket on the hind leg",
+   "Honey stomach",
+   "Compound eye",
+   "Wax mirror"
+  ],
+  "a": 0,
+  "why": "The corbicula (pollen basket) on the hind leg carries pollen and resin home.",
+  "cat": "Anatomy"
+ },
+ {
+  "q": "Eggs of all three castes hatch into larvae on about day…",
+  "opts": [
+   "3",
+   "1",
+   "7",
+   "12"
+  ],
+  "a": 0,
+  "why": "An egg stands up, then tips over and hatches around day 3.",
+  "cat": "Development"
+ },
+ {
+  "q": "Which caste has the SHORTEST egg-to-adult development?",
+  "opts": [
+   "Queen (~16 days)",
+   "Worker (~21 days)",
+   "Drone (~24 days)",
+   "They're all equal"
+  ],
+  "a": 0,
+  "why": "Queens develop fastest at about 16 days.",
+  "cat": "Development"
+ },
+ {
+  "q": "Which caste has the LONGEST egg-to-adult development?",
+  "opts": [
+   "Drone (~24 days)",
+   "Queen (~16 days)",
+   "Worker (~21 days)",
+   "Nurse bee"
+  ],
+  "a": 0,
+  "why": "Drones take the longest, roughly 24 days.",
+  "cat": "Development"
+ },
+ {
+  "q": "A WORKER bee emerges about how many days after the egg is laid?",
+  "opts": [
+   "21 days",
+   "16 days",
+   "24 days",
+   "30 days"
+  ],
+  "a": 0,
+  "why": "Worker: egg 3 days, larva ~6, then capped and pupating until ~day 21.",
+  "cat": "Development"
+ },
+ {
+  "q": "Worker brood cells are typically capped around day…",
+  "opts": [
+   "8–9",
+   "3",
+   "16",
+   "21"
+  ],
+  "a": 0,
+  "why": "After ~6 days as a larva, worker cells are capped around day 8–9.",
+  "cat": "Development"
+ },
+ {
+  "q": "The developmental stage between larva and adult, inside a capped cell, is the…",
+  "opts": [
+   "Pupa",
+   "Egg",
+   "Prepupa only",
+   "Nymph"
+  ],
+  "a": 0,
+  "why": "During the pupal stage the bee undergoes metamorphosis into an adult.",
+  "cat": "Development"
+ },
+ {
+  "q": "A virgin queen generally takes her mating flights within about…",
+  "opts": [
+   "The first 1–2 weeks after emerging",
+   "The first day",
+   "Two months",
+   "A full year"
+  ],
+  "a": 0,
+  "why": "Queens usually mate roughly 5–14 days after emerging, weather permitting.",
+  "cat": "Development"
+ },
+ {
+  "q": "A queen typically starts laying eggs about how long after mating?",
+  "opts": [
+   "2–3 days",
+   "Same day",
+   "2 weeks",
+   "2 months"
+  ],
+  "a": 0,
+  "why": "After her mating flights she begins laying within a couple of days.",
+  "cat": "Development"
+ },
+ {
+  "q": "A drone becomes sexually mature about how many days after emerging?",
+  "opts": [
+   "About 12 days",
+   "The same day",
+   "About 2 hours",
+   "About 40 days"
+  ],
+  "a": 0,
+  "why": "Drones need roughly 10–14 days to mature before they can mate.",
+  "cat": "Development"
+ },
+ {
+  "q": "Capped DRONE brood looks different from worker brood because it is…",
+  "opts": [
+   "Raised and bullet-shaped",
+   "Flat and sunken",
+   "Bright white",
+   "Hexagonal and open"
+  ],
+  "a": 0,
+  "why": "Drone cappings dome up like bullets; worker cappings are flatter and tan.",
+  "cat": "Development"
+ },
+ {
+  "q": "The 'step-down' aging of larvae (rings of different-age brood) results from…",
+  "opts": [
+   "The queen laying outward in concentric circles",
+   "Random egg-laying",
+   "Workers moving eggs",
+   "Disease"
+  ],
+  "a": 0,
+  "why": "A good queen lays from the center outward, so brood ages in neat rings.",
+  "cat": "Development"
+ },
+ {
+  "q": "Which sequence is the honey bee's complete life cycle?",
+  "opts": [
+   "Egg → larva → pupa → adult",
+   "Egg → pupa → larva → adult",
+   "Larva → egg → pupa → adult",
+   "Egg → nymph → adult"
+  ],
+  "a": 0,
+  "why": "Bees undergo complete metamorphosis with a distinct pupal stage.",
+  "cat": "Development"
+ },
+ {
+  "q": "A newly emerged worker's very first job in the hive is usually…",
+  "opts": [
+   "Cleaning cells",
+   "Foraging for nectar",
+   "Guarding the entrance",
+   "Mating"
+  ],
+  "a": 0,
+  "why": "Workers move through age-based tasks (polyethism), starting with cell cleaning.",
+  "cat": "Development"
+ },
+ {
+  "q": "Developing queens differ from workers mainly because they are fed…",
+  "opts": [
+   "Royal jelly throughout the larval stage",
+   "Only honey",
+   "Only pollen",
+   "Less food overall"
+  ],
+  "a": 0,
+  "why": "A flood of royal jelly the whole larval period makes a larva become a queen.",
+  "cat": "Development"
+ },
+ {
+  "q": "Parasitic Mite Syndrome (PMS) is colony decline driven by…",
+  "opts": [
+   "Varroa mites together with the viruses they spread",
+   "Pesticides only",
+   "Poor nutrition only",
+   "Wax moths"
+  ],
+  "a": 0,
+  "why": "PMS combines mite feeding damage with virus loads, causing spotty brood and decline.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "'Chilled brood' usually happens when…",
+  "opts": [
+   "Too few adult bees cover the brood in cold weather",
+   "The hive is too warm",
+   "Mites are absent",
+   "There is too much honey"
+  ],
+  "a": 0,
+  "why": "Brood left uncovered (small cluster, or over-inspection on a cold day) can die of cold.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Brown spotting on snow from winter 'cleansing flights' is…",
+  "opts": [
+   "Normal — even a good sign the bees got out to defecate",
+   "Always a sign of disease",
+   "Caused by Varroa",
+   "A pesticide symptom"
+  ],
+  "a": 0,
+  "why": "A bit of fecal matter after winter confinement is healthy; heavy streaking is the worry.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "A 'spotty' or shotgun brood pattern can be caused by…",
+  "opts": [
+   "Disease, a poor/inbred queen, or hygienic removal",
+   "Only American foulbrood",
+   "Only good nutrition",
+   "Only cold weather"
+  ],
+  "a": 0,
+  "why": "Many things cause a patchy pattern, so it's a clue to investigate, not a diagnosis.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Which is a REPORTABLE disease that many states legally regulate?",
+  "opts": [
+   "American foulbrood",
+   "Chalkbrood",
+   "Sacbrood",
+   "Wax moth damage"
+  ],
+  "a": 0,
+  "why": "AFB is so contagious and persistent that reporting/control is often required by law.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "EFB, sacbrood and chalkbrood often improve when the colony is…",
+  "opts": [
+   "Strong, well-fed, and/or requeened",
+   "Closed up tight",
+   "Stripped of honey",
+   "Moved at night"
+  ],
+  "a": 0,
+  "why": "Good nutrition and a brood break from requeening help these clear up.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "'Bald brood' — a line of uncapped pupae — is often a sign of…",
+  "opts": [
+   "Wax moth larvae tunneling under cappings",
+   "A new queen",
+   "A nectar flow",
+   "Good ventilation"
+  ],
+  "a": 0,
+  "why": "Wax moth galleries (or hygienic uncapping) can leave a trail of exposed brood.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Idiopathic brood disease refers to sick brood with…",
+  "opts": [
+   "No identifiable known cause",
+   "A clear AFB cause",
+   "A clear Varroa cause",
+   "A clear pesticide cause"
+  ],
+  "a": 0,
+  "why": "It looks like other brood diseases but no specific pathogen is found.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Many paralysis viruses and Deformed Wing Virus are amplified in a colony mainly by…",
+  "opts": [
+   "Varroa mites",
+   "Wax moths",
+   "Robbing screens",
+   "Pollen substitutes"
+  ],
+  "a": 0,
+  "why": "Varroa both spreads and boosts these viruses, so mite control limits them.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "IPM stands for…",
+  "opts": [
+   "Integrated Pest Management",
+   "Internal Pesticide Method",
+   "Insect Protection Mandate",
+   "Initial Pollination Measure"
+  ],
+  "a": 0,
+  "why": "IPM blends monitoring, cultural, mechanical and (last) chemical controls.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Which is considered a 'soft' (natural) Varroa miticide?",
+  "opts": [
+   "Oxalic acid",
+   "Amitraz (Apivar)",
+   "Fluvalinate (Apistan)",
+   "Coumaphos (CheckMite+)"
+  ],
+  "a": 0,
+  "why": "Oxalic, formic and thymol are 'soft' organic options; the others are synthetics.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "A purely CULTURAL (non-chemical) Varroa control is…",
+  "opts": [
+   "Drone-brood trapping",
+   "Spraying Apivar",
+   "Vaporizing oxalic acid",
+   "Dribbling formic acid"
+  ],
+  "a": 0,
+  "why": "Removing capped drone comb pulls out the mites that gathered in it — no chemicals.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Requeening to force a 'brood break' lowers mites because it…",
+  "opts": [
+   "Temporarily stops the capped brood mites need to reproduce",
+   "Poisons the mites",
+   "Repels mites with scent",
+   "Feeds the colony"
+  ],
+  "a": 0,
+  "why": "No capped brood means mites can't reproduce, so their numbers fall.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "For an accurate mite wash, you sample about how many bees?",
+  "opts": [
+   "About 300 (½ cup)",
+   "About 10",
+   "About 50",
+   "The whole frame"
+  ],
+  "a": 0,
+  "why": "Roughly 300 nurse bees (½ cup) gives a reliable mites-per-100 reading.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "The best bees to sample for mites come from…",
+  "opts": [
+   "A frame of nurse bees near the brood nest",
+   "The honey supers",
+   "The hive entrance",
+   "Drone congregation areas"
+  ],
+  "a": 0,
+  "why": "Nurse bees near brood carry the most representative mite load.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Formic acid is unusual among Varroa treatments because it…",
+  "opts": [
+   "Can penetrate cappings to kill mites in the brood",
+   "Is harmless at any temperature",
+   "Stays in wax for years",
+   "Repels rather than kills"
+  ],
+  "a": 0,
+  "why": "Formic acid reaches mites under the cappings, unlike most treatments.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "A screened bottom board assists Varroa management by…",
+  "opts": [
+   "Letting groomed/fallen mites drop out of the hive",
+   "Trapping the queen",
+   "Warming the brood",
+   "Increasing honey"
+  ],
+  "a": 0,
+  "why": "Mites that fall through can't climb back, and you can count the drop.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Untreated Varroa most often kills a colony by…",
+  "opts": [
+   "Producing weak, virus-laden winter bees that fail over winter",
+   "Eating all the honey",
+   "Scaring off the queen",
+   "Blocking the entrance"
+  ],
+  "a": 0,
+  "why": "High mites in late summer cripple the winter bees, and the colony dies in winter.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Powdered-sugar dusting reduces mites by…",
+  "opts": [
+   "Prompting bees to groom mites off (limited effect)",
+   "Poisoning the mites",
+   "Suffocating brood",
+   "Killing the queen"
+  ],
+  "a": 0,
+  "why": "Sugar makes bees groom off phoretic mites; it's a monitoring aid more than a cure.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "'Mite-resistant' stocks like VSH or Russian bees keep mites down through…",
+  "opts": [
+   "Behavioral/genetic traits such as removing infested brood",
+   "Producing more honey",
+   "Larger body size",
+   "Stinging the mites"
+  ],
+  "a": 0,
+  "why": "Selected traits interrupt mite reproduction without chemicals.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "In an IPM program, chemical miticides should be used…",
+  "opts": [
+   "As a last resort, based on monitoring and thresholds",
+   "First, before checking mite levels",
+   "Every week regardless",
+   "Never, under any circumstance"
+  ],
+  "a": 0,
+  "why": "IPM treats with chemicals only when monitoring shows mites exceed a threshold.",
+  "cat": "Varroa"
+ },
+ {
   "q": "What is “abdomen”?",
   "opts": [
    "One of three main body segments of insects (which also include the head and thorax)",
