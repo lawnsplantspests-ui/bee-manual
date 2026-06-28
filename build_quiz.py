@@ -297,9 +297,50 @@ for i, q in enumerate(Q):
     seen[k] = i
 
 out = [{"q": q, "opts": opts, "a": 0, "why": why, "cat": cat} for (q, opts, why, cat) in Q]
+
+# ---- Auto-generate a "What is X?" vocabulary quiz from the glossary ----
+# (transforms the glossary already in the app into study questions; cat="Glossary",
+#  excluded from the "All topics" concept quiz and pickable as its own quiz.)
+import re, random
+random.seed(11)
+
+def first_sentence(d):
+    return re.split(r'(?<=[a-z0-9)"\'])\.\s+(?=[A-Z(])', d.strip())[0].strip()
+
+def clean_phrase(term, d):
+    s = first_sentence(d)
+    s2 = re.sub(r'^(The |A |An )?'+re.escape(term)+r"(s|es)?\b\s*(is|are|means|refers to)\s+(the\s+|a\s+|an\s+)?",
+                '', s, flags=re.I).strip()
+    s = s2 if (s2 and len(s2) > 10) else s
+    if len(s) > 150:
+        s = s[:148].rsplit(' ', 1)[0].rstrip(',;:') + '…'
+    return (s[0].upper() + s[1:]) if s else s
+
+gloss = json.load(open(r"C:\Users\leasy\bee-manual\glossary.json", encoding="utf-8"))
+items = []
+for g in gloss:
+    d = (g.get("def") or "").strip()
+    if d.lower().startswith("see "): continue          # skip cross-references
+    if len(d) < 50: continue                            # skip stubs
+    ph = clean_phrase(g["term"], d)
+    if len(ph) < 22: continue
+    items.append((g["term"], g.get("alias", ""), ph, d))
+
+phrases = [it[2] for it in items]
+def article(w): return "an" if w[:1].lower() in "aeiou" else "a"
+gq = []
+for i, (term, alias, ph, d) in enumerate(items):
+    pool = [p for j, p in enumerate(phrases) if j != i and p != ph]
+    distractors = random.sample(pool, 3)
+    why = d + (f"  (Also: {alias})" if alias else "")
+    gq.append({"q": f"What is “{term}”?", "opts": [ph] + distractors, "a": 0,
+               "why": why, "cat": "Glossary"})
+
+out += gq
+
 json.dump(out, open(r"C:\Users\leasy\bee-manual\quiz.json","w",encoding="utf-8"),
           ensure_ascii=False, indent=1)
 from collections import Counter
-c = Counter(q[3] for q in Q)
-print("Questions:", len(out))
-for cat in cats: print(f"  {cat}: {c[cat]}")
+c = Counter(o["cat"] for o in out)
+print("Questions:", len(out), f"(concept {len(out)-len(gq)} + glossary {len(gq)})")
+for cat in c: print(f"  {cat}: {c[cat]}")
