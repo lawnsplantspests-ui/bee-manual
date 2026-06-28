@@ -92,9 +92,11 @@ DISEASE = [
 
 # Real file catalog produced by build_library.py (run that first)
 LIBRARY = json.load(open(r"C:\Users\leasy\bee-manual\library.json", encoding="utf-8"))
+# Practice-test question bank produced by build_quiz.py
+QUIZ = json.load(open(r"C:\Users\leasy\bee-manual\quiz.json", encoding="utf-8"))
 
 DATA = {"glossary": G, "quickfacts": QUICKFACTS, "varroa": VARROA, "varroaNote": VARROA_NOTE,
-        "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY}
+        "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY, "quiz": QUIZ}
 out = json.dumps(DATA, ensure_ascii=False, separators=(",",":"))
 open(r"C:\Users\leasy\bee-manual\data.json","w",encoding="utf-8").write(out)
 print("data.json:", len(out), "bytes |", len(G), "glossary terms")

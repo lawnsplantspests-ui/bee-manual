@@ -1,0 +1,1034 @@
+[
+ {
+  "q": "How many main body segments does a honey bee have?",
+  "opts": [
+   "Three — head, thorax, abdomen",
+   "Two — head and body",
+   "Four",
+   "Six, one per leg pair"
+  ],
+  "a": 0,
+  "why": "Like all insects, bees have three segments: head, thorax, and abdomen.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Which honey bee develops from an UNfertilized egg?",
+  "opts": [
+   "The drone",
+   "The worker",
+   "The queen",
+   "The nurse bee"
+  ],
+  "a": 0,
+  "why": "Drones are haploid — they hatch from unfertilized eggs and have only the mother's genes.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Honey bees are haplodiploid. This means drones are…",
+  "opts": [
+   "Haploid (one set of chromosomes)",
+   "Diploid",
+   "Triploid",
+   "Sterile females"
+  ],
+  "a": 0,
+  "why": "Drones are haploid; females (workers and queens) are diploid.",
+  "cat": "Biology"
+ },
+ {
+  "q": "What is 'bee space'?",
+  "opts": [
+   "About 3/8 inch",
+   "About 1/8 inch",
+   "About 1 inch",
+   "About 1/2 inch"
+  ],
+  "a": 0,
+  "why": "3/8\" is the gap bees leave open. Smaller, they fill it with propolis; larger, they build burr comb.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A queen mates with an average of about how many drones?",
+  "opts": [
+   "About 12",
+   "Exactly 1",
+   "About 3",
+   "About 50"
+  ],
+  "a": 0,
+  "why": "Queens mate with ~12 drones (range 10–20) on 1–3 mating flights, boosting genetic diversity.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Where are the glands that produce royal jelly located?",
+  "opts": [
+   "In the heads of nurse bees",
+   "In the abdomen",
+   "In the legs",
+   "In the sting"
+  ],
+  "a": 0,
+  "why": "Hypopharyngeal glands in nurse bees' heads secrete royal jelly to feed larvae.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Which organ stores sperm in the queen after mating?",
+  "opts": [
+   "The spermatheca",
+   "The crop",
+   "The Dufour's gland",
+   "An ovariole"
+  ],
+  "a": 0,
+  "why": "The spermatheca stores sperm for the queen's whole life, releasing it to fertilize eggs.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Worker bees secrete wax from glands located on the…",
+  "opts": [
+   "Underside of the abdomen",
+   "Head",
+   "Hind legs",
+   "Thorax"
+  ],
+  "a": 0,
+  "why": "Wax glands sit on the underside of the worker's abdomen, most active before she becomes a forager.",
+  "cat": "Biology"
+ },
+ {
+  "q": "On average, honey bees spend how long as larvae?",
+  "opts": [
+   "About 6 days",
+   "About 1 day",
+   "About 12 days",
+   "About 21 days"
+  ],
+  "a": 0,
+  "why": "All castes average ~6 days in the larval stage before pupating.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Pollen is the colony's primary source of…",
+  "opts": [
+   "Protein",
+   "Carbohydrate",
+   "Water",
+   "Wax"
+  ],
+  "a": 0,
+  "why": "Pollen (as bee bread) supplies protein, fats, vitamins and minerals; nectar supplies carbohydrate.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Nectar is the colony's main source of…",
+  "opts": [
+   "Carbohydrate (energy)",
+   "Protein",
+   "Lipids",
+   "Minerals"
+  ],
+  "a": 0,
+  "why": "Bees convert carbohydrate-rich nectar into honey for energy.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A drone congregation area is where…",
+  "opts": [
+   "Drones gather in the air to mate with virgin queens",
+   "Bees cluster for winter",
+   "Foragers unload nectar",
+   "Robbing happens"
+  ],
+  "a": 0,
+  "why": "Virgin queens fly to these areas to mate with many drones.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Which female bee has a fully developed reproductive system?",
+  "opts": [
+   "The queen",
+   "A nurse bee",
+   "A forager",
+   "A guard bee"
+  ],
+  "a": 0,
+  "why": "The queen is the only fully reproductive female; workers' ovaries are greatly reduced.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Only which bees can sting?",
+  "opts": [
+   "Female bees",
+   "Male bees (drones)",
+   "Only the queen",
+   "All bees equally"
+  ],
+  "a": 0,
+  "why": "The stinger is a modified ovipositor (egg-layer), so only females have one.",
+  "cat": "Biology"
+ },
+ {
+  "q": "What does the waggle dance communicate?",
+  "opts": [
+   "Direction and distance to a resource",
+   "Time of day",
+   "The age of the queen",
+   "A swarm warning only"
+  ],
+  "a": 0,
+  "why": "The waggle's angle gives direction and its duration gives distance to food or a nest site.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Below about what temperature do bees form a winter cluster?",
+  "opts": [
+   "64°F",
+   "45°F",
+   "75°F",
+   "32°F"
+  ],
+  "a": 0,
+  "why": "Around 64°F bees cluster to stay warm; foraging and water collection stop.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Heater bees keep the brood nest at roughly…",
+  "opts": [
+   "91–97°F",
+   "75–80°F",
+   "100–105°F",
+   "60–65°F"
+  ],
+  "a": 0,
+  "why": "Brood must be incubated at 91–97°F (33–36°C) to develop properly.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "'Festooning' (bees hanging in chains by their legs) is associated with…",
+  "opts": [
+   "Wax construction",
+   "Defense",
+   "Robbing",
+   "Swarming"
+  ],
+  "a": 0,
+  "why": "Festooning bees are usually building comb.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Robbing is when honey bees…",
+  "opts": [
+   "Steal honey/nectar from another colony",
+   "Collect water",
+   "Remove dead bees",
+   "Rob pollen from flowers"
+  ],
+  "a": 0,
+  "why": "Robbing is bees taking stores from another colony instead of foraging flowers.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "An orientation flight is taken to…",
+  "opts": [
+   "Learn the hive's location and surroundings",
+   "Mate",
+   "Find water",
+   "Defecate"
+  ],
+  "a": 0,
+  "why": "Young bees take short orientation flights to memorize the hive location, also needed after a move.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "A cleansing flight is when bees leave the hive to…",
+  "opts": [
+   "Defecate",
+   "Mate",
+   "Swarm",
+   "Collect propolis"
+  ],
+  "a": 0,
+  "why": "Bees hold waste through winter and void it on warm days — fecal spots on snow can be a good sign.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "The tremble dance recruits bees to…",
+  "opts": [
+   "Unload nectar from incoming foragers",
+   "Defend the hive",
+   "Build comb",
+   "Swarm"
+  ],
+  "a": 0,
+  "why": "When a forager can't find a receiver bee, she tremble-dances to recruit more nectar handlers.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Bees can navigate using polarized light because they…",
+  "opts": [
+   "Can see it even through clouds",
+   "Have a magnetic sense",
+   "Follow scent trails only",
+   "Count landmarks"
+  ],
+  "a": 0,
+  "why": "Bees detect polarized sunlight to orient while foraging, even on cloudy days.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Heavy orange/brown streaking on the front of a hive most likely signals…",
+  "opts": [
+   "Dysentery or disease",
+   "Healthy bees",
+   "A strong nectar flow",
+   "A new queen"
+  ],
+  "a": 0,
+  "why": "A little fecal matter is normal; heavy streaking is a warning sign.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Many queen cells along the BOTTOM edge of frames usually indicate…",
+  "opts": [
+   "Swarm preparation",
+   "Supersedure",
+   "A healthy honey flow",
+   "Drone laying"
+  ],
+  "a": 0,
+  "why": "Numerous cells low on the comb are swarm cells — the colony is preparing to split.",
+  "cat": "Queens"
+ },
+ {
+  "q": "A few queen cells near the CENTER of the comb usually indicate…",
+  "opts": [
+   "Supersedure or an emergency replacement",
+   "Swarming",
+   "Robbing",
+   "Normal drone rearing"
+  ],
+  "a": 0,
+  "why": "Central cells usually mean the workers are replacing a failing or lost queen.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Supersedure is…",
+  "opts": [
+   "Workers replacing an old or failing queen",
+   "A colony swarming",
+   "Two colonies merging",
+   "A queen killing drones"
+  ],
+  "a": 0,
+  "why": "In supersedure the colony raises a new queen to replace the existing one, often without swarming.",
+  "cat": "Queens"
+ },
+ {
+  "q": "A laying worker's eggs develop into…",
+  "opts": [
+   "Drones",
+   "Workers",
+   "Queens",
+   "Nothing — they're infertile"
+  ],
+  "a": 0,
+  "why": "Laying workers' eggs are unfertilized, so they become drones.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Seeing multiple eggs in single cells most often means…",
+  "opts": [
+   "Laying workers are present",
+   "A very productive queen",
+   "Healthy brood",
+   "A disease"
+  ],
+  "a": 0,
+  "why": "A good queen lays one egg per cell; multiple eggs per cell point to laying workers.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Emergency queen cells are built when…",
+  "opts": [
+   "The colony suddenly loses its queen",
+   "The nectar flow ends",
+   "Drones are abundant",
+   "Winter approaches"
+  ],
+  "a": 0,
+  "why": "Workers convert young worker larvae into queens after an abrupt queen loss.",
+  "cat": "Queens"
+ },
+ {
+  "q": "A 'queenright' colony is one that…",
+  "opts": [
+   "Has a laying queen",
+   "Has no queen",
+   "Has two queens",
+   "Is about to swarm"
+  ],
+  "a": 0,
+  "why": "Queenright simply means a laying queen is present.",
+  "cat": "Queens"
+ },
+ {
+  "q": "In the Doolittle method of queen rearing, larvae are…",
+  "opts": [
+   "Grafted into artificial queen cups",
+   "Frozen and stored",
+   "Fed only honey",
+   "Left in worker cells"
+  ],
+  "a": 0,
+  "why": "Young larvae are grafted into cups and given to cell-builder colonies to raise as queens.",
+  "cat": "Queens"
+ },
+ {
+  "q": "How many mating flights does a virgin queen typically take?",
+  "opts": [
+   "1 to 3",
+   "Exactly 1",
+   "About 10",
+   "She doesn't fly to mate"
+  ],
+  "a": 0,
+  "why": "A queen takes 1–3 mating flights to a drone congregation area.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Roughly what percentage of adult bees are drones at peak (late spring/early summer)?",
+  "opts": [
+   "About 5%",
+   "About 1%",
+   "About 25%",
+   "About 50%"
+  ],
+  "a": 0,
+  "why": "~5% at peak. Far more capped drone late summer can signal a drone-laying queen.",
+  "cat": "Queens"
+ },
+ {
+  "q": "A nuc (nucleus colony) is…",
+  "opts": [
+   "A small colony of about 2–5 frames",
+   "A full double-deep hive",
+   "A queen cage",
+   "A swarm trap"
+  ],
+  "a": 0,
+  "why": "Nucs are small colonies made by pulling frames and bees from larger ones.",
+  "cat": "Queens"
+ },
+ {
+  "q": "The 'mating sign' a returning queen may carry is…",
+  "opts": [
+   "Part of the drone's endophallus left behind",
+   "A scent marker",
+   "A torn wing",
+   "Pollen on her legs"
+  ],
+  "a": 0,
+  "why": "When a drone mates, his endophallus ruptures; the tip may remain in the queen.",
+  "cat": "Queens"
+ },
+ {
+  "q": "American foulbrood (AFB) is caused by a…",
+  "opts": [
+   "Bacterium",
+   "Fungus",
+   "Virus",
+   "Mite"
+  ],
+  "a": 0,
+  "why": "AFB is caused by the spore-forming bacterium Paenibacillus larvae and is highly infectious.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "The 'ropy test' (twisting a toothpick in a cell) checks for…",
+  "opts": [
+   "American foulbrood",
+   "Varroa",
+   "Nosema",
+   "Chalkbrood"
+  ],
+  "a": 0,
+  "why": "If the larval remains rope out 2 cm+, suspect AFB.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Which disease leaves a hard, dark scale that will NOT scrape out of the cell?",
+  "opts": [
+   "American foulbrood",
+   "Chalkbrood",
+   "Sacbrood",
+   "Nosema"
+  ],
+  "a": 0,
+  "why": "AFB scale sticks tightly to the cell wall — a key field clue.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Chalkbrood is caused by a…",
+  "opts": [
+   "Fungus",
+   "Bacterium",
+   "Virus",
+   "Mite"
+  ],
+  "a": 0,
+  "why": "The fungus Ascosphaera apis turns larvae into hard chalky 'mummies.'",
+  "cat": "Diseases"
+ },
+ {
+  "q": "European foulbrood (EFB) is caused by a…",
+  "opts": [
+   "Bacterium",
+   "Fungus",
+   "Virus",
+   "Protozoan"
+  ],
+  "a": 0,
+  "why": "EFB is caused by Melissococcus plutonius; larvae usually die before capping.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Nosema is a disease of the bee's…",
+  "opts": [
+   "Gut (a fungal parasite)",
+   "Wings",
+   "Trachea",
+   "Brood only"
+  ],
+  "a": 0,
+  "why": "Nosema is a gut fungus; N. apis is linked with dysentery.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Deformed Wing Virus is spread mainly by…",
+  "opts": [
+   "Varroa mites",
+   "Wax moths",
+   "Small hive beetles",
+   "Robbing"
+  ],
+  "a": 0,
+  "why": "Varroa vectors DWV — crumpled wings are a red flag for high mite loads.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Sacbrood is caused by a…",
+  "opts": [
+   "Virus",
+   "Bacterium",
+   "Fungus",
+   "Mite"
+  ],
+  "a": 0,
+  "why": "Sacbrood virus leaves fluid-filled, sac-like larvae that turn brown.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Wax moths are mainly a problem in…",
+  "opts": [
+   "Weak colonies and stored comb",
+   "Strong colonies",
+   "Honey supers on strong hives",
+   "Queen cells"
+  ],
+  "a": 0,
+  "why": "Wax moths exploit weak colonies and unprotected stored comb.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Which problem is the most serious and often requires burning equipment?",
+  "opts": [
+   "American foulbrood",
+   "Chalkbrood",
+   "Wax moth",
+   "Sacbrood"
+  ],
+  "a": 0,
+  "why": "AFB spores survive decades; burning is often the only sure control.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Where can U.S. beekeepers send samples for FREE disease diagnosis?",
+  "opts": [
+   "The Beltsville Bee Lab (USDA)",
+   "A local pharmacy",
+   "The post office",
+   "No such service exists"
+  ],
+  "a": 0,
+  "why": "The USDA Beltsville Bee Lab in Maryland offers free diagnosis.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Tracheal mites live and feed inside the bee's…",
+  "opts": [
+   "Tracheae (breathing tubes)",
+   "Stomach",
+   "Sting",
+   "Brain"
+  ],
+  "a": 0,
+  "why": "Acarapis woodi infests the tracheae, feeding on hemolymph.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Small white 'guanine' crystals on the ceilings of brood cells indicate…",
+  "opts": [
+   "High Varroa mite levels",
+   "Healthy brood",
+   "American foulbrood",
+   "Good nutrition"
+  ],
+  "a": 0,
+  "why": "Guanine deposits are mite waste — a sign of heavy Varroa.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Dysentery (brown streaking inside/outside the hive) is most associated with…",
+  "opts": [
+   "Nosema",
+   "Varroa",
+   "Wax moth",
+   "Chalkbrood"
+  ],
+  "a": 0,
+  "why": "Nosema apis in particular is linked with dysentery.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Chalkbrood 'mummies' look like…",
+  "opts": [
+   "Hard, chalky white or black larvae",
+   "Brown ropy goo",
+   "Sac-like fluid larvae",
+   "Normal capped brood"
+  ],
+  "a": 0,
+  "why": "Affected larvae dry into chalk-like mummies that may rattle in cells or appear at the entrance.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "A small, fast black beetle that slimes the comb in warm, humid conditions is the…",
+  "opts": [
+   "Small hive beetle",
+   "Wax moth",
+   "Carpenter bee",
+   "Hive tool beetle"
+  ],
+  "a": 0,
+  "why": "Small hive beetle larvae ferment and ruin comb and honey, worst in heat and humidity.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Varroa mites reproduce…",
+  "opts": [
+   "Inside capped brood cells",
+   "On adult bees only",
+   "In honey cells",
+   "In pollen stores"
+  ],
+  "a": 0,
+  "why": "A foundress mite enters a cell before capping and raises offspring on the developing pupa.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Varroa prefer to reproduce in which type of brood?",
+  "opts": [
+   "Drone brood",
+   "Queen cells",
+   "Worker brood only",
+   "They don't prefer any"
+  ],
+  "a": 0,
+  "why": "Drone brood's longer development lets mites raise more mature daughters.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "The 'phoretic' (dispersal) phase of Varroa is when mites are…",
+  "opts": [
+   "Riding on adult bees",
+   "Inside capped cells",
+   "In the honey",
+   "Dormant in wax"
+  ],
+  "a": 0,
+  "why": "Phoretic mites travel on adult bees between brood cells and colonies.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "A reliable way to monitor Varroa levels is…",
+  "opts": [
+   "An alcohol wash or sugar roll",
+   "Looking at the entrance",
+   "Counting drones",
+   "Weighing the hive"
+  ],
+  "a": 0,
+  "why": "Washing a half-cup of bees gives an actual mite count; eyeballing bees does not.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Which Varroa treatment's active ingredient is amitraz?",
+  "opts": [
+   "Apivar",
+   "Apiguard",
+   "MiteAway Quick Strips",
+   "Oxalic acid"
+  ],
+  "a": 0,
+  "why": "Apivar uses amitraz; supers must be off and you wait 2 weeks after.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Which treatment uses formic acid and can be used with honey supers on?",
+  "opts": [
+   "MiteAway Quick Strips",
+   "Apivar",
+   "Apiguard",
+   "Api Life Var"
+  ],
+  "a": 0,
+  "why": "MAQS (formic acid) can stay on during a 7-day treatment, but needs moderate temps.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Oxalic acid works best when the colony is…",
+  "opts": [
+   "Broodless (e.g., late fall)",
+   "Full of capped brood",
+   "In peak honey flow",
+   "Swarming"
+  ],
+  "a": 0,
+  "why": "Oxalic doesn't penetrate capped brood, so it's most effective when little/no brood is present.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Which two products are NOT recommended due to resistance and wax residues?",
+  "opts": [
+   "Apistan and CheckMite+",
+   "Apivar and Apiguard",
+   "Oxalic and formic acid",
+   "HopGuard and MAQS"
+  ],
+  "a": 0,
+  "why": "Both persist in wax for years and mites have widespread resistance.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Thymol-based treatments like Apiguard need what conditions to work well?",
+  "opts": [
+   "Warm temperatures",
+   "Freezing temperatures",
+   "Total darkness",
+   "High humidity only"
+  ],
+  "a": 0,
+  "why": "Thymol must vaporize, so it needs warmth (roughly 60–105°F).",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Why should you rotate Varroa treatments?",
+  "opts": [
+   "To slow the development of resistance",
+   "To save money",
+   "Because the law requires it",
+   "To attract more bees"
+  ],
+  "a": 0,
+  "why": "Rotating chemistries and following IPM reduces the chance mites become resistant.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "At minimum, how many brood frames should you inspect per box?",
+  "opts": [
+   "At least 4",
+   "Just 1",
+   "All 10 every time",
+   "None — check the outside only"
+  ],
+  "a": 0,
+  "why": "Inspecting at least 4 brood frames gives a fair picture without over-disturbing the nest.",
+  "cat": "Management"
+ },
+ {
+  "q": "A healthy brood frame looks like a…",
+  "opts": [
+   "Rainbow — brood center, pollen arc, honey on top",
+   "Solid sheet of honey",
+   "Random scatter",
+   "Wall of drone cells"
+  ],
+  "a": 0,
+  "why": "Brood in the center, ringed by pollen, then honey, with only 6–17% empty cells.",
+  "cat": "Management"
+ },
+ {
+  "q": "Each year you should aim to replace how many of the oldest frames per box?",
+  "opts": [
+   "The 2 oldest",
+   "All of them",
+   "None",
+   "Half the box"
+  ],
+  "a": 0,
+  "why": "Rotating out the 2 oldest frames yearly removes built-up pathogens and pesticides.",
+  "cat": "Management"
+ },
+ {
+  "q": "You should never remove more than how many frames from a hive at once?",
+  "opts": [
+   "4",
+   "8",
+   "2",
+   "There's no limit"
+  ],
+  "a": 0,
+  "why": "Pulling more than 4 at once diverts the colony into comb-building instead of brood/honey.",
+  "cat": "Management"
+ },
+ {
+  "q": "A 1:1 sugar syrup (equal sugar and water) is mainly used to…",
+  "opts": [
+   "Stimulate brood rearing in spring",
+   "Build winter stores",
+   "Treat mites",
+   "Make honey"
+  ],
+  "a": 0,
+  "why": "Thin 1:1 syrup mimics a nectar flow and stimulates the queen to lay.",
+  "cat": "Management"
+ },
+ {
+  "q": "A 2:1 sugar syrup (twice as much sugar) is mainly used to…",
+  "opts": [
+   "Build stores for winter in fall",
+   "Stimulate spring brood",
+   "Feed in mid-summer flow",
+   "Treat disease"
+  ],
+  "a": 0,
+  "why": "Thick 2:1 syrup helps colonies pack away winter stores.",
+  "cat": "Management"
+ },
+ {
+  "q": "Scratch marks at the hive entrance most likely mean…",
+  "opts": [
+   "Skunks",
+   "Mice inside",
+   "A strong colony",
+   "Robbing bees"
+  ],
+  "a": 0,
+  "why": "Skunks scratch to lure bees out and eat them; raising the hive on a stand helps.",
+  "cat": "Management"
+ },
+ {
+  "q": "When examining a brood frame, you should hold it with…",
+  "opts": [
+   "The sun at your back, light shining into the cells",
+   "The sun in your eyes",
+   "The frame flat and level",
+   "Your shadow over it"
+  ],
+  "a": 0,
+  "why": "Backlighting the cells reveals eggs, larvae and the brood pattern.",
+  "cat": "Management"
+ },
+ {
+  "q": "Integrated Pest Management (IPM) means you treat when pests…",
+  "opts": [
+   "Reach or exceed a threshold",
+   "Are first seen at all",
+   "Are gone",
+   "Only in winter"
+  ],
+  "a": 0,
+  "why": "IPM uses monitoring and treats based on thresholds, reducing unnecessary chemical use.",
+  "cat": "Management"
+ },
+ {
+  "q": "Putting frames back in the same order and orientation helps…",
+  "opts": [
+   "Keep the brood nest intact",
+   "Confuse robbers",
+   "Speed up honey flow",
+   "Mark the queen"
+  ],
+  "a": 0,
+  "why": "The nest is organized; scrambling frames disrupts brood and stores.",
+  "cat": "Management"
+ },
+ {
+  "q": "Bee bread is…",
+  "opts": [
+   "Fermented, stored pollen",
+   "Capped honey",
+   "Royal jelly",
+   "A pollen substitute"
+  ],
+  "a": 0,
+  "why": "Pollen packed with honey and microbes ferments into bee bread, a key protein source.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "A 'dearth' is a period when…",
+  "opts": [
+   "Little nectar or pollen is available",
+   "Bees swarm",
+   "Mites peak",
+   "Honey is harvested"
+  ],
+  "a": 0,
+  "why": "During a dearth, forage is scarce and robbing risk rises.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Abundant white royal jelly pooled around young larvae indicates…",
+  "opts": [
+   "Good colony nutrition",
+   "Starvation",
+   "Disease",
+   "Queenlessness"
+  ],
+  "a": 0,
+  "why": "Plenty of jelly means nurses have enough protein; thin/no jelly suggests feeding is needed.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "A pollen SUBSTITUTE differs from a supplement because it…",
+  "opts": [
+   "Contains no real pollen",
+   "Is made only of honey",
+   "Includes natural pollen",
+   "Is fed only in winter"
+  ],
+  "a": 0,
+  "why": "Substitutes (soy, yeast, milk powder) have no pollen; supplements mix in some real pollen.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Ideal pollen/bee-bread stores for brood rearing are about…",
+  "opts": [
+   "1–2 frames per brood box",
+   "None needed",
+   "A full box",
+   "Only what fits in one cell"
+  ],
+  "a": 0,
+  "why": "Roughly 1–2 frames of pollen per brood box supports healthy brood rearing.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Seeing 10–20 bees per minute entering with full pollen baskets indicates…",
+  "opts": [
+   "A good resource flow",
+   "Robbing",
+   "A failing colony",
+   "Swarming"
+  ],
+  "a": 0,
+  "why": "Steady incoming pollen is a sign lots of resources are coming into the colony.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Bees cap honey when its moisture is about…",
+  "opts": [
+   "17–19%",
+   "30–35%",
+   "5–8%",
+   "Exactly 25%"
+  ],
+  "a": 0,
+  "why": "At ~17–19% water the honey is ripe and the bees cap it.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Honey is at risk of fermenting when moisture rises above about…",
+  "opts": [
+   "18%",
+   "10%",
+   "5%",
+   "2%"
+  ],
+  "a": 0,
+  "why": "Above ~18% moisture, wild yeasts can ferment honey.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Crystallization in honey is the formation of…",
+  "opts": [
+   "Glucose crystals",
+   "Wax flakes",
+   "Mold",
+   "Air bubbles"
+  ],
+  "a": 0,
+  "why": "Glucose naturally crystallizes; it doesn't mean the honey is spoiled.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Propolis is made by bees from…",
+  "opts": [
+   "Tree resins (mixed with wax)",
+   "Pure beeswax",
+   "Pollen only",
+   "Nectar"
+  ],
+  "a": 0,
+  "why": "Foragers gather plant resins and mix them with wax to seal and protect the nest.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "A hive 'stocking rate' refers to…",
+  "opts": [
+   "Hives needed per area of a crop for pollination",
+   "Bees per frame",
+   "Honey per hive",
+   "Frames per box"
+  ],
+  "a": 0,
+  "why": "Stocking rate is how many colonies an acre/crop needs for adequate pollination.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "A pollination contract is an agreement between…",
+  "opts": [
+   "A grower and a beekeeper",
+   "Two beekeepers",
+   "A bee and a flower",
+   "A state and a farmer"
+  ],
+  "a": 0,
+  "why": "It's a binding contract for renting colonies to pollinate a crop.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Mead is made by fermenting…",
+  "opts": [
+   "Honey with water",
+   "Pollen",
+   "Beeswax",
+   "Nectar straight from flowers"
+  ],
+  "a": 0,
+  "why": "Mead is an alcoholic drink fermented from honey and water.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Ultrafiltered honey (every particle removed) is legally considered…",
+  "opts": [
+   "A sweetener, not honey",
+   "Premium honey",
+   "Organic honey",
+   "Raw honey"
+  ],
+  "a": 0,
+  "why": "The FDA classes ultrafiltered product as a sweetener because pollen and all particles are gone.",
+  "cat": "Honey & Business"
+ }
+]
