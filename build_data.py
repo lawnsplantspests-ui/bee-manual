@@ -94,9 +94,12 @@ DISEASE = [
 LIBRARY = json.load(open(r"C:\Users\leasy\bee-manual\library.json", encoding="utf-8"))
 # Practice-test question bank produced by build_quiz.py
 QUIZ = json.load(open(r"C:\Users\leasy\bee-manual\quiz.json", encoding="utf-8"))
+# Oral-exam prep + seasonal calendar
+from study_data import ORAL, CALENDAR
 
 DATA = {"glossary": G, "quickfacts": QUICKFACTS, "varroa": VARROA, "varroaNote": VARROA_NOTE,
-        "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY, "quiz": QUIZ}
+        "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY, "quiz": QUIZ,
+        "oral": ORAL, "calendar": CALENDAR}
 out = json.dumps(DATA, ensure_ascii=False, separators=(",",":"))
 open(r"C:\Users\leasy\bee-manual\data.json","w",encoding="utf-8").write(out)
 print("data.json:", len(out), "bytes |", len(G), "glossary terms")
