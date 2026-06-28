@@ -2292,6 +2292,414 @@
   "cat": "Diseases"
  },
  {
+  "q": "What is the scientific name of the Western honey bee?",
+  "opts": [
+   "Apis mellifera",
+   "Apis cerana",
+   "Apis dorsata",
+   "Bombus terrestris"
+  ],
+  "a": 0,
+  "why": "Apis mellifera — Apis is the genus, mellifera the species ('honey-bearing').",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The species name 'mellifera' means…",
+  "opts": [
+   "Honey-bearing / honey-maker",
+   "Stinging insect",
+   "Yellow and black",
+   "Social bee"
+  ],
+  "a": 0,
+  "why": "Melli = honey, fera = bearer. So Apis mellifera is the 'honey-bearing bee.'",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the Italian honey bee?",
+  "opts": [
+   "Apis mellifera ligustica",
+   "Apis mellifera carnica",
+   "Apis mellifera caucasica",
+   "Apis cerana"
+  ],
+  "a": 0,
+  "why": "Italians are Apis mellifera ligustica — light-colored and prolific.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the Carniolan honey bee?",
+  "opts": [
+   "Apis mellifera carnica",
+   "Apis mellifera ligustica",
+   "Apis mellifera mellifera",
+   "Apis florea"
+  ],
+  "a": 0,
+  "why": "Carniolans are Apis mellifera carnica — gentle, with rapid spring buildup.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the Caucasian honey bee?",
+  "opts": [
+   "Apis mellifera caucasica",
+   "Apis mellifera ligustica",
+   "Apis mellifera scutellata",
+   "Apis dorsata"
+  ],
+  "a": 0,
+  "why": "Caucasians are Apis mellifera caucasica, known for long tongues and heavy propolis.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Africanized bees descend partly from which African subspecies?",
+  "opts": [
+   "Apis mellifera scutellata",
+   "Apis mellifera ligustica",
+   "Apis mellifera carnica",
+   "Apis cerana"
+  ],
+  "a": 0,
+  "why": "A. m. scutellata, crossed with European bees, gave rise to the Africanized 'killer' bee.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The European dark (German/black) honey bee is…",
+  "opts": [
+   "Apis mellifera mellifera",
+   "Apis mellifera ligustica",
+   "Apis mellifera caucasica",
+   "Apis dorsata"
+  ],
+  "a": 0,
+  "why": "Apis mellifera mellifera is the dark northern-European subspecies.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the Asian (Eastern) honey bee?",
+  "opts": [
+   "Apis cerana",
+   "Apis mellifera",
+   "Apis dorsata",
+   "Apis florea"
+  ],
+  "a": 0,
+  "why": "Apis cerana is the Asian honey bee — original host of Varroa.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the giant honey bee?",
+  "opts": [
+   "Apis dorsata",
+   "Apis florea",
+   "Apis cerana",
+   "Apis mellifera"
+  ],
+  "a": 0,
+  "why": "Apis dorsata, the giant honey bee, builds large open-air single combs.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the dwarf honey bee?",
+  "opts": [
+   "Apis florea",
+   "Apis dorsata",
+   "Apis cerana",
+   "Apis mellifera"
+  ],
+  "a": 0,
+  "why": "Apis florea is the dwarf honey bee.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the Varroa mite?",
+  "opts": [
+   "Varroa destructor",
+   "Varroa jacobsoni",
+   "Acarapis woodi",
+   "Aethina tumida"
+  ],
+  "a": 0,
+  "why": "Varroa destructor is the mite that devastates Western honey bee colonies.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which Varroa species originally parasitized only the Asian honey bee?",
+  "opts": [
+   "Varroa jacobsoni",
+   "Varroa destructor",
+   "Acarapis woodi",
+   "Tropilaelaps"
+  ],
+  "a": 0,
+  "why": "Varroa jacobsoni stayed on Apis cerana; V. destructor jumped to Apis mellifera.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the tracheal mite?",
+  "opts": [
+   "Acarapis woodi",
+   "Varroa destructor",
+   "Aethina tumida",
+   "Galleria mellonella"
+  ],
+  "a": 0,
+  "why": "Acarapis woodi lives in the bee's tracheae (breathing tubes).",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The tropilaelaps mite belongs to the genus…",
+  "opts": [
+   "Tropilaelaps",
+   "Varroa",
+   "Acarapis",
+   "Aethina"
+  ],
+  "a": 0,
+  "why": "Tropilaelaps is a serious brood-parasitic mite genus, not yet established in the US.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the small hive beetle?",
+  "opts": [
+   "Aethina tumida",
+   "Galleria mellonella",
+   "Achroia grisella",
+   "Varroa destructor"
+  ],
+  "a": 0,
+  "why": "Aethina tumida slimes comb and honey, worst in warm, humid conditions.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the GREATER wax moth?",
+  "opts": [
+   "Galleria mellonella",
+   "Achroia grisella",
+   "Aethina tumida",
+   "Acarapis woodi"
+  ],
+  "a": 0,
+  "why": "Galleria mellonella is the greater wax moth.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "What is the scientific name of the LESSER wax moth?",
+  "opts": [
+   "Achroia grisella",
+   "Galleria mellonella",
+   "Aethina tumida",
+   "Ascosphaera apis"
+  ],
+  "a": 0,
+  "why": "Achroia grisella is the lesser wax moth.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which bacterium causes American foulbrood?",
+  "opts": [
+   "Paenibacillus larvae",
+   "Melissococcus plutonius",
+   "Ascosphaera apis",
+   "Clostridium botulinum"
+  ],
+  "a": 0,
+  "why": "Paenibacillus larvae forms tough spores that make AFB so persistent.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which bacterium causes European foulbrood?",
+  "opts": [
+   "Melissococcus plutonius",
+   "Paenibacillus larvae",
+   "Ascosphaera apis",
+   "Nosema apis"
+  ],
+  "a": 0,
+  "why": "Melissococcus plutonius causes EFB, usually killing larvae before capping.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which fungus causes chalkbrood?",
+  "opts": [
+   "Ascosphaera apis",
+   "Paenibacillus larvae",
+   "Melissococcus plutonius",
+   "Nosema ceranae"
+  ],
+  "a": 0,
+  "why": "Ascosphaera apis turns larvae into hard chalky mummies.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The historic Nosema species linked with dysentery is…",
+  "opts": [
+   "Nosema apis",
+   "Nosema ceranae",
+   "Ascosphaera apis",
+   "Varroa destructor"
+  ],
+  "a": 0,
+  "why": "Nosema apis is the long-known gut parasite associated with dysentery.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The more recently spread Nosema species (from Asia) is…",
+  "opts": [
+   "Nosema ceranae",
+   "Nosema apis",
+   "Paenibacillus larvae",
+   "Aethina tumida"
+  ],
+  "a": 0,
+  "why": "Nosema ceranae is the newer gut parasite of honey bees in North America.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which bacterium produces the toxin behind infant botulism (a honey concern)?",
+  "opts": [
+   "Clostridium botulinum",
+   "Paenibacillus larvae",
+   "Melissococcus plutonius",
+   "Ascosphaera apis"
+  ],
+  "a": 0,
+  "why": "Clostridium botulinum spores are why honey isn't fed to infants under 1.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Yellowjackets belong to the genera Vespula and…",
+  "opts": [
+   "Dolichovespula",
+   "Bombus",
+   "Apis",
+   "Galleria"
+  ],
+  "a": 0,
+  "why": "Social yellow-and-black wasps in Vespula and Dolichovespula can rob hives in fall.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Bumble bees belong to the genus…",
+  "opts": [
+   "Bombus",
+   "Apis",
+   "Vespula",
+   "Aethina"
+  ],
+  "a": 0,
+  "why": "Bombus are the familiar fuzzy, social bumble bees in the family Apidae.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "To which FAMILY does the honey bee belong?",
+  "opts": [
+   "Apidae",
+   "Vespidae",
+   "Formicidae",
+   "Hymenoptera"
+  ],
+  "a": 0,
+  "why": "Apidae is the largest bee family — honey bees, bumble bees, carpenter bees and more.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "To which ORDER does the honey bee belong?",
+  "opts": [
+   "Hymenoptera",
+   "Coleoptera",
+   "Diptera",
+   "Lepidoptera"
+  ],
+  "a": 0,
+  "why": "Hymenoptera includes bees, wasps and ants — four membranous wings.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "To which GENUS does the honey bee belong?",
+  "opts": [
+   "Apis",
+   "Bombus",
+   "Vespula",
+   "Melissococcus"
+  ],
+  "a": 0,
+  "why": "Apis is the honey-bee genus; the Western honey bee is Apis mellifera.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "To which CLASS does the honey bee belong?",
+  "opts": [
+   "Insecta",
+   "Arachnida",
+   "Mammalia",
+   "Apidae"
+  ],
+  "a": 0,
+  "why": "Bees are in class Insecta (insects): three body segments, six legs.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "To which PHYLUM does the honey bee belong?",
+  "opts": [
+   "Arthropoda",
+   "Chordata",
+   "Mollusca",
+   "Hymenoptera"
+  ],
+  "a": 0,
+  "why": "Arthropoda — jointed-legged invertebrates with an exoskeleton.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "Which is the correct order of classification, broad to specific?",
+  "opts": [
+   "Order → Family → Genus → Species",
+   "Species → Genus → Family → Order",
+   "Genus → Family → Order → Species",
+   "Family → Order → Genus → Species"
+  ],
+  "a": 0,
+  "why": "Ranks narrow: Order, then Family, Genus, and finally Species.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "In a scientific name like Apis mellifera, the first word is the…",
+  "opts": [
+   "Genus",
+   "Species",
+   "Subspecies",
+   "Family"
+  ],
+  "a": 0,
+  "why": "Genus is capitalized and comes first; the species name follows in lowercase.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "How should a scientific name like Apis mellifera be written?",
+  "opts": [
+   "Italicized, genus capitalized, species lowercase",
+   "All capital letters",
+   "All lowercase, no italics",
+   "Species first, then genus"
+  ],
+  "a": 0,
+  "why": "Convention: italicized, with the genus capitalized and the species lowercase.",
+  "cat": "Latin Names"
+ },
+ {
+  "q": "The third word in a name like Apis mellifera ligustica indicates the…",
+  "opts": [
+   "Subspecies (race)",
+   "Genus",
+   "Family",
+   "Order"
+  ],
+  "a": 0,
+  "why": "A third term denotes the subspecies/race — here, the Italian bee.",
+  "cat": "Latin Names"
+ },
+ {
   "q": "What is “abdomen”?",
   "opts": [
    "One of three main body segments of insects (which also include the head and thorax)",

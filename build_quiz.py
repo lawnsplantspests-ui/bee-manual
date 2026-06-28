@@ -285,6 +285,12 @@ try:
 except Exception as e:
     print("(no quiz_more:", e, ")")
 
+try:
+    from quiz_latin import LATIN
+    Q = Q + LATIN
+except Exception as e:
+    print("(no quiz_latin:", e, ")")
+
 cats = []
 for cat in [q[3] for q in Q]:
     if cat not in cats: cats.append(cat)
