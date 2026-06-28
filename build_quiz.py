@@ -279,9 +279,22 @@ Q = [
  "The FDA classes ultrafiltered product as a sweetener because pollen and all particles are gone.","Honey & Business"),
 ]
 
+try:
+    from quiz_more import MORE
+    Q = Q + MORE
+except Exception as e:
+    print("(no quiz_more:", e, ")")
+
 cats = []
 for cat in [q[3] for q in Q]:
     if cat not in cats: cats.append(cat)
+
+# guard against accidental duplicate question stems
+seen = {}
+for i, q in enumerate(Q):
+    k = q[0].strip().lower()
+    if k in seen: print("DUPLICATE question:", q[0])
+    seen[k] = i
 
 out = [{"q": q, "opts": opts, "a": 0, "why": why, "cat": cat} for (q, opts, why, cat) in Q]
 json.dump(out, open(r"C:\Users\leasy\bee-manual\quiz.json","w",encoding="utf-8"),

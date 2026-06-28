@@ -1030,5 +1030,1265 @@
   "a": 0,
   "why": "The FDA classes ultrafiltered product as a sweetener because pollen and all particles are gone.",
   "cat": "Honey & Business"
+ },
+ {
+  "q": "How many eyes does a honey bee have?",
+  "opts": [
+   "Five — two compound and three simple (ocelli)",
+   "Two",
+   "Three",
+   "Eight"
+  ],
+  "a": 0,
+  "why": "Two large compound eyes plus three small ocelli that sense light intensity.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The three small simple eyes on top of a bee's head are called…",
+  "opts": [
+   "Ocelli",
+   "Compound eyes",
+   "Spiracles",
+   "Antennae"
+  ],
+  "a": 0,
+  "why": "Ocelli detect light intensity but can't form an image.",
+  "cat": "Biology"
+ },
+ {
+  "q": "How many wings does a honey bee have?",
+  "opts": [
+   "Four",
+   "Two",
+   "Six",
+   "Eight"
+  ],
+  "a": 0,
+  "why": "Two pairs; hooks called hamuli link the front and hind wing on each side in flight.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A bee's main organs of smell are its…",
+  "opts": [
+   "Antennae",
+   "Compound eyes",
+   "Mandibles",
+   "Wings"
+  ],
+  "a": 0,
+  "why": "The antennae carry most of the bee's smell and touch receptors.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Bees breathe through small openings along the body called…",
+  "opts": [
+   "Spiracles",
+   "Ocelli",
+   "Hamuli",
+   "Ovarioles"
+  ],
+  "a": 0,
+  "why": "Air enters through spiracles and travels via tracheae to the tissues.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The honey bee equivalent of blood is called…",
+  "opts": [
+   "Hemolymph",
+   "Plasma",
+   "Royal jelly",
+   "Lymph nodes"
+  ],
+  "a": 0,
+  "why": "Hemolymph bathes the organs directly rather than flowing through veins.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Bees draw up nectar and water using their…",
+  "opts": [
+   "Proboscis (tongue)",
+   "Mandibles",
+   "Antennae",
+   "Ovipositor"
+  ],
+  "a": 0,
+  "why": "The proboscis is a tube the bee forms to suck up liquids.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The honey bee organs that act like kidneys are the…",
+  "opts": [
+   "Malpighian tubules",
+   "Spiracles",
+   "Mandibular glands",
+   "Ocelli"
+  ],
+  "a": 0,
+  "why": "Malpighian tubules filter waste from the hemolymph into the hindgut.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Which bee has no stinger at all?",
+  "opts": [
+   "The drone",
+   "The worker",
+   "The queen",
+   "The nurse bee"
+  ],
+  "a": 0,
+  "why": "Drones are male; the stinger is a modified egg-layer found only in females.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A summer worker bee typically lives about…",
+  "opts": [
+   "6 weeks",
+   "6 days",
+   "6 months",
+   "2 years"
+  ],
+  "a": 0,
+  "why": "Summer workers wear out in roughly 6 weeks; winter bees live for months.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Winter bees survive for months partly because they have…",
+  "opts": [
+   "Larger fat bodies and more vitellogenin",
+   "Bigger wings",
+   "No stinger",
+   "Larger eyes"
+  ],
+  "a": 0,
+  "why": "Winter bees are physiologically distinct, with large fat bodies for longevity.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Vitellogenin in bees is important for…",
+  "opts": [
+   "Egg production, immunity and longevity",
+   "Flight muscle only",
+   "Wax color",
+   "Stinger strength"
+  ],
+  "a": 0,
+  "why": "Vitellogenin supports egg-making, royal jelly, immune function and long life.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The fat body of a bee mainly functions to…",
+  "opts": [
+   "Store energy and produce vitellogenin",
+   "Pump hemolymph",
+   "Digest pollen in the gut",
+   "Form the stinger"
+  ],
+  "a": 0,
+  "why": "The fat body stores fat/glycogen and makes key proteins.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The valve that keeps nectar in the honey crop from being digested is the…",
+  "opts": [
+   "Proventriculus",
+   "Spiracle",
+   "Hamulus",
+   "Ocellus"
+  ],
+  "a": 0,
+  "why": "The proventriculus closes off the crop from the ventriculus (stomach).",
+  "cat": "Biology"
+ },
+ {
+  "q": "How many legs does a honey bee have?",
+  "opts": [
+   "Six",
+   "Four",
+   "Eight",
+   "Three"
+  ],
+  "a": 0,
+  "why": "All insects have three pairs of legs.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Pollen is carried back to the hive packed into the…",
+  "opts": [
+   "Pollen baskets (corbiculae) on the hind legs",
+   "Honey crop",
+   "Mandibles",
+   "Antennae"
+  ],
+  "a": 0,
+  "why": "Foragers pack pollen pellets into the corbiculae on their hind legs.",
+  "cat": "Biology"
+ },
+ {
+  "q": "From egg to adult, a QUEEN develops in about…",
+  "opts": [
+   "16 days",
+   "21 days",
+   "24 days",
+   "12 days"
+  ],
+  "a": 0,
+  "why": "Queens are fastest at ~16 days; workers ~21; drones ~24.",
+  "cat": "Biology"
+ },
+ {
+  "q": "From egg to adult, a WORKER develops in about…",
+  "opts": [
+   "21 days",
+   "16 days",
+   "24 days",
+   "28 days"
+  ],
+  "a": 0,
+  "why": "Workers take about 21 days from egg to emergence.",
+  "cat": "Biology"
+ },
+ {
+  "q": "From egg to adult, a DRONE develops in about…",
+  "opts": [
+   "24 days",
+   "21 days",
+   "16 days",
+   "30 days"
+  ],
+  "a": 0,
+  "why": "Drones take the longest, about 24 days.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A honey bee egg hatches into a larva after about…",
+  "opts": [
+   "3 days",
+   "1 day",
+   "7 days",
+   "12 days"
+  ],
+  "a": 0,
+  "why": "Eggs of all castes hatch around day 3.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Developing queens are fed royal jelly…",
+  "opts": [
+   "Their entire larval stage",
+   "Only the first day",
+   "Never",
+   "Only after capping"
+  ],
+  "a": 0,
+  "why": "Queens get royal jelly throughout; workers only the first 2–3 days, then bee bread and honey.",
+  "cat": "Biology"
+ },
+ {
+  "q": "The order of honey bee metamorphosis is…",
+  "opts": [
+   "Egg → larva → pupa → adult",
+   "Egg → pupa → larva → adult",
+   "Larva → egg → pupa → adult",
+   "Egg → nymph → adult"
+  ],
+  "a": 0,
+  "why": "Bees undergo complete metamorphosis through a distinct pupal stage.",
+  "cat": "Biology"
+ },
+ {
+  "q": "A peanut-shaped cell hanging downward off the comb is a…",
+  "opts": [
+   "Queen cell",
+   "Drone cell",
+   "Worker cell",
+   "Honey cell"
+  ],
+  "a": 0,
+  "why": "Queen cells are large, vertical and peanut-textured.",
+  "cat": "Biology"
+ },
+ {
+  "q": "Workers sense their queen is present and healthy mainly through her…",
+  "opts": [
+   "Pheromones (queen substance)",
+   "Buzzing sound",
+   "Size",
+   "Color"
+  ],
+  "a": 0,
+  "why": "Queen pheromone spreads through the colony; its decline signals queenlessness.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "The alarm pheromone, which smells like bananas, is released when a bee…",
+  "opts": [
+   "Stings",
+   "Forages",
+   "Builds comb",
+   "Cleans cells"
+  ],
+  "a": 0,
+  "why": "Alarm pheromone near the sting recruits other bees to defend.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Bees stand at the entrance and fan to release Nasonov pheromone in order to…",
+  "opts": [
+   "Help orient and recruit nestmates (mark home/water)",
+   "Cool the brood only",
+   "Signal danger",
+   "Attract drones"
+  ],
+  "a": 0,
+  "why": "Nasonov pheromone marks the hive entrance, water, and swarm clusters.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Brood pheromone, released by larvae, helps…",
+  "opts": [
+   "Regulate nursing and worker development",
+   "Mark the hive entrance",
+   "Trigger stinging",
+   "Ripen honey"
+  ],
+  "a": 0,
+  "why": "Larval brood pheromone influences foraging and suppresses worker ovaries.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Bees clustering OUTSIDE the entrance on a hot evening ('bearding') are usually…",
+  "opts": [
+   "Cooling off and ventilating the hive",
+   "Preparing to swarm",
+   "Being robbed",
+   "Sick"
+  ],
+  "a": 0,
+  "why": "Bearding is normal heat behavior, not necessarily swarming.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Fanning at the entrance with the abdomen down often means bees are…",
+  "opts": [
+   "Cooling the hive or curing honey",
+   "Releasing alarm pheromone",
+   "Robbing",
+   "Orienting"
+  ],
+  "a": 0,
+  "why": "Wing-fanning moves air to lower temperature and evaporate nectar moisture.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "'Absconding' is when…",
+  "opts": [
+   "The entire colony abandons the hive",
+   "A queen is replaced",
+   "Bees rob another hive",
+   "Drones are evicted"
+  ],
+  "a": 0,
+  "why": "Absconding is the whole colony leaving, often due to pests, disease or disturbance.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Undertaker bees are workers that…",
+  "opts": [
+   "Remove dead bodies and debris from the hive",
+   "Guard the entrance",
+   "Feed the queen",
+   "Build queen cells"
+  ],
+  "a": 0,
+  "why": "A subset of middle-aged bees keeps the nest clean by removing corpses.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "Drifting is when bees…",
+  "opts": [
+   "Enter the wrong hive by mistake",
+   "Leave to defecate",
+   "Form a swarm",
+   "Rob honey"
+  ],
+  "a": 0,
+  "why": "Drift is common when hives look alike and sit close together.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "In late fall, colonies evict their drones because…",
+  "opts": [
+   "Drones don't work and would drain winter stores",
+   "Drones carry disease",
+   "The queen stops laying",
+   "Drones sting"
+  ],
+  "a": 0,
+  "why": "Drones are costly to feed and useless in winter, so workers force them out.",
+  "cat": "Behavior"
+ },
+ {
+  "q": "A virgin queen flies to a drone congregation area to mate because it…",
+  "opts": [
+   "Promotes outbreeding with unrelated drones",
+   "Is closest to the hive",
+   "Has the most flowers",
+   "Is where workers gather"
+  ],
+  "a": 0,
+  "why": "Mating away from home with many drones boosts genetic diversity and avoids inbreeding.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Polyandry (a queen mating with many drones) benefits the colony by…",
+  "opts": [
+   "Increasing genetic diversity and disease resistance",
+   "Reducing the number of workers",
+   "Making bigger queens",
+   "Producing only drones"
+  ],
+  "a": 0,
+  "why": "Diverse genetics helps the colony resist disease and adapt.",
+  "cat": "Queens"
+ },
+ {
+  "q": "Instrumental (artificial) insemination of queens is used to…",
+  "opts": [
+   "Control exactly which drones a queen mates with",
+   "Speed up egg laying",
+   "Feed the queen",
+   "Mark the queen"
+  ],
+  "a": 0,
+  "why": "It gives breeders full control over genetics, unlike open mating.",
+  "cat": "Queens"
+ },
+ {
+  "q": "A two-queen colony is sometimes run to…",
+  "opts": [
+   "Boost honey production",
+   "Prevent swarming forever",
+   "Raise drones only",
+   "Make the bees gentler"
+  ],
+  "a": 0,
+  "why": "Two laying queens build a huge population for bigger honey crops, kept apart by management.",
+  "cat": "Queens"
+ },
+ {
+  "q": "If you find eggs but cannot find the queen, a good rule is…",
+  "opts": [
+   "Eggs mean she was there in the last ~3 days — the colony is likely queenright",
+   "The colony is definitely queenless",
+   "Add a new queen immediately",
+   "Combine the colony"
+  ],
+  "a": 0,
+  "why": "Fresh eggs are strong evidence of a recent laying queen even if you can't spot her.",
+  "cat": "Queens"
+ },
+ {
+  "q": "The scientific name of the Italian honey bee subspecies is…",
+  "opts": [
+   "Apis mellifera ligustica",
+   "Apis mellifera carnica",
+   "Apis cerana",
+   "Apis dorsata"
+  ],
+  "a": 0,
+  "why": "Italians are A. m. ligustica — prolific, light-colored, popular in the US.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "Carniolan bees (Apis mellifera carnica) are especially known for…",
+  "opts": [
+   "Gentleness and rapid spring buildup",
+   "Aggression",
+   "Poor wintering",
+   "Tiny colonies"
+  ],
+  "a": 0,
+  "why": "Carniolans are docile, overwinter well and build up fast in spring.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "VSH (Varroa Sensitive Hygiene) is a trait where bees…",
+  "opts": [
+   "Detect and remove Varroa-infested pupae",
+   "Groom each other constantly",
+   "Make extra propolis",
+   "Swarm less"
+  ],
+  "a": 0,
+  "why": "VSH bees interrupt mite reproduction by uncapping and removing infested brood.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "Africanized honey bees are best described as…",
+  "opts": [
+   "A defensive hybrid of African and European bees",
+   "A separate species",
+   "Stingless bees",
+   "Sterile workers"
+  ],
+  "a": 0,
+  "why": "They defend aggressively and abscond readily, but are the same species, A. mellifera.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "'Hygienic behavior' in bees refers to workers…",
+  "opts": [
+   "Detecting and removing diseased or parasitized brood",
+   "Cleaning the entrance",
+   "Grooming the queen",
+   "Fanning honey"
+  ],
+  "a": 0,
+  "why": "Hygienic colonies uncap and remove sick brood, reducing disease spread.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "Open mating means a queen's offspring genetics are…",
+  "opts": [
+   "Uncertain — she mates with whatever drones are around",
+   "Fully controlled",
+   "Always Italian",
+   "Identical to her"
+  ],
+  "a": 0,
+  "why": "With open mating you can't guarantee the drones' stock.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "A 'stock' of bees is…",
+  "opts": [
+   "A group bred for a particular set of traits",
+   "A box of equipment",
+   "A swarm",
+   "A disease"
+  ],
+  "a": 0,
+  "why": "Stock describes bees selected for traits like gentleness, honey, or mite resistance.",
+  "cat": "Genetics"
+ },
+ {
+  "q": "The standard movable-frame hive used across North America is the…",
+  "opts": [
+   "Langstroth hive",
+   "Skep",
+   "Warré hive only",
+   "Log gum"
+  ],
+  "a": 0,
+  "why": "The Langstroth design exploits bee space so frames lift out without damage.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "A queen excluder is used to…",
+  "opts": [
+   "Keep the queen out of the honey supers",
+   "Trap drones",
+   "Block robbers",
+   "Catch swarms"
+  ],
+  "a": 0,
+  "why": "Its gaps let workers through but stop the larger queen from laying in honey supers.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "Smoke calms bees mainly by…",
+  "opts": [
+   "Masking alarm pheromone and prompting them to gorge on honey",
+   "Putting them to sleep",
+   "Poisoning mites",
+   "Cooling the hive"
+  ],
+  "a": 0,
+  "why": "Smoke disrupts alarm communication and makes bees eat honey, which calms them.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "Honey is removed from frames WITHOUT destroying the comb using a(n)…",
+  "opts": [
+   "Extractor",
+   "Smoker",
+   "Queen excluder",
+   "Uncapping the brood"
+  ],
+  "a": 0,
+  "why": "An extractor spins honey out by centrifugal force so comb can be reused.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "Before extracting, beekeepers remove the wax cappings by…",
+  "opts": [
+   "Uncapping with a knife, fork or roller",
+   "Freezing the frames",
+   "Smoking them",
+   "Washing with water"
+  ],
+  "a": 0,
+  "why": "Cappings must come off so honey can spin out of the cells.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "A screened bottom board helps with…",
+  "opts": [
+   "Ventilation and monitoring Varroa mite drop",
+   "Keeping the queen in",
+   "Honey extraction",
+   "Feeding syrup"
+  ],
+  "a": 0,
+  "why": "Mites that fall through the screen can be counted, and airflow improves.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "An entrance reducer is mainly used to…",
+  "opts": [
+   "Help a colony defend against robbing and cold",
+   "Increase honey flow",
+   "Mark the queen",
+   "Catch pollen"
+  ],
+  "a": 0,
+  "why": "Shrinking the entrance helps weak or wintering colonies guard and stay warm.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "Medium ('honey super') boxes are often preferred over deeps for honey because…",
+  "opts": [
+   "They're lighter to lift when full",
+   "They hold more honey",
+   "Bees prefer them",
+   "They resist mites"
+  ],
+  "a": 0,
+  "why": "A full deep of honey is very heavy; mediums are easier on the back.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "Comb foundation in a frame serves to…",
+  "opts": [
+   "Guide bees to build straight, worker-sized comb",
+   "Feed the bees",
+   "Kill mites",
+   "Insulate the hive"
+  ],
+  "a": 0,
+  "why": "Foundation gives bees a template for even comb on the frame.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "A nuc (nucleus) box is typically used to…",
+  "opts": [
+   "House a small starter colony of a few frames",
+   "Store honey",
+   "Catch falling mites",
+   "Transport the extractor"
+  ],
+  "a": 0,
+  "why": "Nucs hold 2–5 frames to start or bank a small colony.",
+  "cat": "Equipment"
+ },
+ {
+  "q": "To keep mice out of a hive over winter, beekeepers commonly use…",
+  "opts": [
+   "An entrance reducer or mouse guard",
+   "A queen excluder",
+   "A pollen trap",
+   "An extractor"
+  ],
+  "a": 0,
+  "why": "Mice nest in winter clusters; a small entrance or metal guard blocks them.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "The most effective protection against bears at an apiary is…",
+  "opts": [
+   "A properly built electric fence",
+   "An entrance reducer",
+   "Painting the hives",
+   "Adding more supers"
+  ],
+  "a": 0,
+  "why": "Bears destroy hives for brood and honey; strong electric fencing is the standard defense.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "A robbing screen works by…",
+  "opts": [
+   "Forcing resident bees to learn a detour while confusing robbers",
+   "Killing robber bees",
+   "Trapping the queen",
+   "Catching pollen"
+  ],
+  "a": 0,
+  "why": "It reroutes the entrance so robbers can't find a straight way in.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Yellowjackets are most likely to attack honey bee colonies in…",
+  "opts": [
+   "Late summer and fall",
+   "Early spring",
+   "Mid-winter",
+   "During the main nectar flow"
+  ],
+  "a": 0,
+  "why": "Yellowjacket pressure peaks August–October as their own food runs short.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "A 'zombee' is a honey bee parasitized by a…",
+  "opts": [
+   "Phorid fly",
+   "Varroa mite",
+   "Wax moth",
+   "Tracheal mite"
+  ],
+  "a": 0,
+  "why": "Phorid fly larvae cause erratic night-flying behavior, hence 'zombee.'",
+  "cat": "Diseases"
+ },
+ {
+  "q": "'Mite bombs' refer to…",
+  "opts": [
+   "Collapsing colonies whose mites spread to others via robbing",
+   "A treatment device",
+   "A type of swarm",
+   "A pesticide"
+  ],
+  "a": 0,
+  "why": "When a heavily-infested colony crashes, robbing bees carry its mites home.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "A commonly cited Varroa action threshold is about…",
+  "opts": [
+   "3 mites per 100 bees",
+   "30 mites per 100 bees",
+   "1 mite per 1,000 bees",
+   "No threshold — never treat"
+  ],
+  "a": 0,
+  "why": "Many guides suggest treating when mite loads pass ~3 per 100 bees, lower before winter.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Compared with an alcohol wash, a powdered-sugar (sugar) roll is…",
+  "opts": [
+   "Non-lethal but can be less accurate",
+   "More lethal",
+   "Useless",
+   "Only for tracheal mites"
+  ],
+  "a": 0,
+  "why": "The sugar roll spares the sampled bees; alcohol washes tend to give higher, more reliable counts.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Drone-brood trapping controls Varroa by…",
+  "opts": [
+   "Luring mites into drone comb that you then remove",
+   "Poisoning the mites",
+   "Repelling mites with scent",
+   "Starving the colony"
+  ],
+  "a": 0,
+  "why": "Mites prefer drone brood; removing capped drone frames removes the mites in them.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "It's especially important to knock down Varroa in late summer to…",
+  "opts": [
+   "Protect the winter bees being raised then",
+   "Increase the honey crop",
+   "Encourage swarming",
+   "Boost drone numbers"
+  ],
+  "a": 0,
+  "why": "Mites peak as the colony shrinks; healthy winter bees are essential for survival.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Oxalic acid 'vaporization' works by…",
+  "opts": [
+   "Heating the acid so it sublimates and coats the bees",
+   "Dissolving it in syrup",
+   "Spraying brood directly",
+   "Burning the mites"
+  ],
+  "a": 0,
+  "why": "A vaporizer sublimates oxalic crystals into a vapor that settles on the bees.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "Why should you remove Varroa treatment strips on schedule rather than leaving them in?",
+  "opts": [
+   "Leaving them in promotes mite resistance",
+   "They attract robbers",
+   "They feed the queen",
+   "They cause swarming"
+  ],
+  "a": 0,
+  "why": "Lingering low-dose exposure helps mites develop resistance.",
+  "cat": "Varroa"
+ },
+ {
+  "q": "The LD50 of a pesticide is the dose that…",
+  "opts": [
+   "Kills half of a test population",
+   "Kills every bee",
+   "Kills no bees",
+   "Repels bees"
+  ],
+  "a": 0,
+  "why": "LD50 is the median lethal dose — a standard measure of acute toxicity.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "Neonicotinoid insecticides harm bees by…",
+  "opts": [
+   "Overstimulating their nervous system",
+   "Blocking digestion",
+   "Dissolving the exoskeleton",
+   "Causing dehydration only"
+  ],
+  "a": 0,
+  "why": "Neonics bind acetylcholine receptors, causing neurons to fire uncontrollably.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "A 'systemic' pesticide is one that…",
+  "opts": [
+   "Spreads throughout all parts of the treated plant",
+   "Stays only on the leaf surface",
+   "Evaporates instantly",
+   "Only affects soil"
+  ],
+  "a": 0,
+  "why": "Systemics like neonics move into nectar and pollen, exposing bees.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "'Sublethal' pesticide effects on bees include…",
+  "opts": [
+   "Impaired navigation, learning or reproduction",
+   "Instant death",
+   "No effect at all",
+   "Only killing mites"
+  ],
+  "a": 0,
+  "why": "Sublethal doses don't kill outright but harm behavior and colony health.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "To reduce bee kills, pesticides should ideally be applied…",
+  "opts": [
+   "In the evening when bees aren't foraging",
+   "At midday on a sunny bloom",
+   "During the nectar flow peak",
+   "Only when bees are active"
+  ],
+  "a": 0,
+  "why": "Spraying when foragers are home and blooms are closed reduces exposure.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "An insecticide is a pesticide that targets…",
+  "opts": [
+   "Insect pests",
+   "Weeds",
+   "Fungi",
+   "Rodents"
+  ],
+  "a": 0,
+  "why": "Herbicides target plants, fungicides target fungi, insecticides target insects.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "'Entombed pollen' (cells of pollen sealed over with propolis and wax) often contains…",
+  "opts": [
+   "High levels of pesticides",
+   "Extra protein",
+   "Royal jelly",
+   "Mite eggs"
+  ],
+  "a": 0,
+  "why": "Bees wall off contaminated pollen; it's been linked to high pesticide residues.",
+  "cat": "Pesticides"
+ },
+ {
+  "q": "Bees collect water primarily to…",
+  "opts": [
+   "Cool the hive and dilute stored food",
+   "Make wax",
+   "Build comb",
+   "Produce venom"
+  ],
+  "a": 0,
+  "why": "Water is used for evaporative cooling and to thin honey for feeding brood.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Pollen provides bees with protein, fats, minerals and…",
+  "opts": [
+   "Vitamins",
+   "Pure sugar",
+   "Wax",
+   "Water only"
+  ],
+  "a": 0,
+  "why": "Pollen is the colony's complete protein/micronutrient source; nectar gives carbs.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Bees need the MOST protein when they are…",
+  "opts": [
+   "Rearing lots of brood",
+   "Clustered in winter",
+   "Foraging for water",
+   "Making wax only"
+  ],
+  "a": 0,
+  "why": "Brood rearing demands protein for nurse bees to make royal jelly.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Turning nectar into honey involves removing water and adding…",
+  "opts": [
+   "Enzymes like invertase",
+   "Pollen grains",
+   "Wax",
+   "Propolis"
+  ],
+  "a": 0,
+  "why": "Enzymes break sucrose into simpler sugars while bees evaporate moisture.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "A diverse mix of pollen colors in the hive generally indicates…",
+  "opts": [
+   "Better overall nutrition",
+   "A disease",
+   "Robbing",
+   "Queenlessness"
+  ],
+  "a": 0,
+  "why": "Varied pollen sources provide a fuller amino-acid profile.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "In fall, beekeepers feed colonies to…",
+  "opts": [
+   "Help them reach enough stored weight for winter",
+   "Stop them from making honey",
+   "Trigger swarming",
+   "Kill mites"
+  ],
+  "a": 0,
+  "why": "Fall feeding (often 2:1 syrup) tops up winter stores.",
+  "cat": "Nutrition"
+ },
+ {
+  "q": "Honey should never be fed to children under 1 year old because of the risk of…",
+  "opts": [
+   "Infant botulism",
+   "Tooth decay",
+   "Allergies",
+   "Choking"
+  ],
+  "a": 0,
+  "why": "Honey can carry Clostridium botulinum spores dangerous to infants.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Honey resists spoiling mainly because of its…",
+  "opts": [
+   "Low moisture, low pH and hydrogen peroxide",
+   "High protein",
+   "Wax content",
+   "Pollen"
+  ],
+  "a": 0,
+  "why": "Few microbes survive honey's dryness, acidity and natural peroxide.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Monofloral honey (like clover or orange blossom) comes from…",
+  "opts": [
+   "Mostly one type of flower",
+   "A blend of many flowers",
+   "Sugar syrup",
+   "Honeydew only"
+  ],
+  "a": 0,
+  "why": "Monofloral honeys are dominated by nectar from a single plant.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Producing beeswax is 'expensive' for bees because they must…",
+  "opts": [
+   "Eat a lot of honey to secrete wax",
+   "Stop foraging entirely",
+   "Lose their stingers",
+   "Abandon the brood"
+  ],
+  "a": 0,
+  "why": "Bees consume roughly several pounds of honey per pound of wax made.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Propolis benefits the colony largely through its…",
+  "opts": [
+   "Antimicrobial properties",
+   "Sweetness",
+   "Wax content",
+   "Water storage"
+  ],
+  "a": 0,
+  "why": "Resin-based propolis seals the nest and helps fight pathogens.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "The largest managed pollination event in the United States is for…",
+  "opts": [
+   "Almonds in California",
+   "Apples in New York",
+   "Blueberries in Maine",
+   "Pumpkins"
+  ],
+  "a": 0,
+  "why": "Each spring well over a million colonies are trucked in to pollinate California almonds.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Honey bees are estimated to help pollinate roughly what share of the food crops we eat?",
+  "opts": [
+   "About one third",
+   "About one tenth",
+   "Nearly all",
+   "Almost none"
+  ],
+  "a": 0,
+  "why": "Pollinators are tied to about a third of crop foods, a common teaching figure.",
+  "cat": "Honey & Business"
+ },
+ {
+  "q": "Two colonies are most commonly united using the…",
+  "opts": [
+   "Newspaper method",
+   "Queen excluder method",
+   "Sugar-roll method",
+   "Smoke method"
+  ],
+  "a": 0,
+  "why": "A sheet of newspaper between boxes lets the two slowly merge scents without fighting.",
+  "cat": "Management"
+ },
+ {
+  "q": "Queens are often marked with a paint color that indicates…",
+  "opts": [
+   "The year she was born",
+   "Her subspecies",
+   "Her temperament",
+   "The apiary number"
+  ],
+  "a": 0,
+  "why": "An international color code (white, yellow, red, green, blue) tracks the queen's age.",
+  "cat": "Management"
+ },
+ {
+  "q": "When moving a hive a short distance, the rule of thumb is to move it…",
+  "opts": [
+   "Less than 3 feet, or more than a couple miles",
+   "Exactly 100 feet",
+   "Any distance, anytime",
+   "Only at noon"
+  ],
+  "a": 0,
+  "why": "Foragers reorient if moved far; small in-place nudges avoid losing them.",
+  "cat": "Management"
+ },
+ {
+  "q": "During swarm season, strong colonies are best inspected about every…",
+  "opts": [
+   "7–10 days",
+   "2 months",
+   "Day",
+   "Hour"
+  ],
+  "a": 0,
+  "why": "Weekly checks catch swarm cells before the colony issues a swarm.",
+  "cat": "Management"
+ },
+ {
+  "q": "'Hefting' a hive means…",
+  "opts": [
+   "Lifting the back to judge how heavy (how much stores)",
+   "Painting it",
+   "Moving it",
+   "Splitting it"
+  ],
+  "a": 0,
+  "why": "A quick lift estimates food reserves, especially heading into winter.",
+  "cat": "Management"
+ },
+ {
+  "q": "A common way to PREVENT swarming is to…",
+  "opts": [
+   "Give the colony more room or make a split",
+   "Close the entrance",
+   "Remove all the honey",
+   "Stop inspecting"
+  ],
+  "a": 0,
+  "why": "Relieving congestion — adding space, supering, or splitting — reduces the swarm urge.",
+  "cat": "Management"
+ },
+ {
+  "q": "In the Northeast, a colony generally needs roughly how much stored honey to survive winter?",
+  "opts": [
+   "About 60–90 pounds",
+   "About 5 pounds",
+   "About 200 pounds",
+   "None — they don't eat in winter"
+  ],
+  "a": 0,
+  "why": "Northern winters demand large stores; ~60–90 lb is a common target.",
+  "cat": "Management"
+ },
+ {
+  "q": "Reversing brood boxes in early spring is done to…",
+  "opts": [
+   "Give the upward-moving cluster room to expand",
+   "Cool the hive",
+   "Trap mites",
+   "Harvest honey"
+  ],
+  "a": 0,
+  "why": "The cluster drifts up over winter; reversing puts empty comb above them to fill.",
+  "cat": "Management"
+ },
+ {
+  "q": "You should generally avoid opening a hive when it is…",
+  "opts": [
+   "Cold, wet or windy",
+   "Sunny and calm",
+   "Mid-morning",
+   "During a nectar flow"
+  ],
+  "a": 0,
+  "why": "Bad weather chills brood and makes bees defensive; pick mild, calm days.",
+  "cat": "Management"
+ },
+ {
+  "q": "A quick first step when you find a colony has swarmed is to…",
+  "opts": [
+   "Check that a viable queen cell or new queen remains",
+   "Add a honey super",
+   "Treat for mites",
+   "Feed pollen"
+  ],
+  "a": 0,
+  "why": "After a swarm, confirm the colony can requeen itself from a remaining cell.",
+  "cat": "Management"
+ },
+ {
+  "q": "American foulbrood is so hard to eradicate because its spores…",
+  "opts": [
+   "Survive for decades and resist heat and chemicals",
+   "Die in a week",
+   "Only live on adult bees",
+   "Are killed by sunlight"
+  ],
+  "a": 0,
+  "why": "AFB spores persist in equipment for 50+ years, which is why burning is often required.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "European foulbrood often improves when the colony…",
+  "opts": [
+   "Hits a strong nectar flow or is requeened",
+   "Is closed up tight",
+   "Has supers removed",
+   "Is moved at night"
+  ],
+  "a": 0,
+  "why": "Better nutrition and a brood break from requeening can let a colony recover from EFB.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Chalkbrood is most often triggered by…",
+  "opts": [
+   "Stress, chilling and poor ventilation",
+   "High Varroa loads",
+   "Pesticide spray",
+   "Robbing"
+  ],
+  "a": 0,
+  "why": "The fungus takes hold in stressed, damp, or chilled brood; strong colonies resist it.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Nosema is best described as a disease of the adult bee's…",
+  "opts": [
+   "Digestive (gut) system",
+   "Wings",
+   "Brood",
+   "Stinger"
+  ],
+  "a": 0,
+  "why": "Nosema fungi infect the gut lining, harming digestion and shortening life.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Sacbrood gets its name because affected larvae…",
+  "opts": [
+   "Form a fluid-filled sac",
+   "Turn to powder",
+   "Smell sour",
+   "Rope out 2 cm"
+  ],
+  "a": 0,
+  "why": "The larva fills with fluid like a tiny water-filled bag, then darkens.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Deformed Wing Virus levels in a colony usually track with…",
+  "opts": [
+   "Varroa mite levels",
+   "Honey production",
+   "Queen age",
+   "Pollen color"
+  ],
+  "a": 0,
+  "why": "DWV is vectored by Varroa, so crumpled wings signal a serious mite problem.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "Which is NOT a honey bee brood disease?",
+  "opts": [
+   "Nosema",
+   "American foulbrood",
+   "European foulbrood",
+   "Chalkbrood"
+  ],
+  "a": 0,
+  "why": "Nosema is an adult gut disease; AFB, EFB and chalkbrood affect brood.",
+  "cat": "Diseases"
+ },
+ {
+  "q": "A reliable way to tell AFB from EFB in the field is that AFB larvae…",
+  "opts": [
+   "Rope out farther (2 cm+) and leave a hard, stuck scale",
+   "Die before capping",
+   "Smell sweet",
+   "Are easy to scrape out"
+  ],
+  "a": 0,
+  "why": "AFB ropes long and leaves a scale that won't lift; EFB usually kills larvae before capping.",
+  "cat": "Diseases"
  }
 ]
