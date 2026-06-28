@@ -90,14 +90,8 @@ DISEASE = [
  {"name":"Deformed Wing Virus (DWV)", "type":"Virus (Varroa-vectored)", "look":"Adults emerge with crumpled, stubby, useless wings; bloated abdomens; shortened lifespan.", "do":"A red flag for high Varroa. Get mites under control — DWV rides with them."},
 ]
 
-LIBRARY = [
- {"mod":"Quick Reference (field)", "files":["Hive Inspection Guide","Varroa Treatment Guide","Disease & Pest Symptom Chart","Beekeeping Calendar for the Northeast","Treatment Hierarchy diagram","Full Glossary (1–4)"]},
- {"mod":"1 · Evolution, Biology & Behavior", "files":["Course transcript","Bee anatomy","Egg/development timeline","Kin selection","Worker polyethism","Glossary","Module quizzes"]},
- {"mod":"2 · The Science & Art of Beekeeping", "files":["Course transcript","Bee subspecies & stock traits","Queen-rearing schedule (Doolittle)","Amino acids / pollen resources","Record sheets (apiary, hive, Varroa)","Module quizzes"]},
- {"mod":"3 · Managing Pests & Diseases", "files":["Course transcript","Glossary","Varroa / Nosema / virus / brood-disease quizzes","Bee health: the big picture"]},
- {"mod":"4 · Rewards & Contributions", "files":["Course transcript","Marketing small-scale honey","Pollination contracts & opportunities","Hive stocking rates","Equipment & startup costs","Inventory workbook","Pesticides & neonics"]},
- {"mod":"Exam prep", "files":["Full syllabus","Oral topic list","Oral exam rubric","Field exam rubrics","Field exam video outline"]},
-]
+# Real file catalog produced by build_library.py (run that first)
+LIBRARY = json.load(open(r"C:\Users\leasy\bee-manual\library.json", encoding="utf-8"))
 
 DATA = {"glossary": G, "quickfacts": QUICKFACTS, "varroa": VARROA, "varroaNote": VARROA_NOTE,
         "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY}
