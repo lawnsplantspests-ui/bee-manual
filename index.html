@@ -31,9 +31,10 @@ header{
   box-shadow:0 2px 10px rgba(0,0,0,.18)
 }
 .bar{display:flex;align-items:center;gap:10px}
-.back{background:rgba(255,255,255,.16);border:0;color:#fff;font-size:20px;line-height:1;
-  width:38px;height:38px;border-radius:10px;display:none;align-items:center;justify-content:center;cursor:pointer}
-.back.show{display:flex}
+.back{background:rgba(255,255,255,.18);border:0;color:#fff;font-size:15px;font-weight:600;line-height:1;
+  height:38px;padding:0 13px 0 9px;border-radius:10px;display:none;align-items:center;gap:3px;cursor:pointer}
+.back .chev{font-size:21px;margin-top:-2px}
+.back.show{display:inline-flex}
 .title{font-size:19px;font-weight:700;letter-spacing:.2px;flex:1;display:flex;align-items:center;gap:8px}
 .title .hx{font-size:18px}
 .search{margin-top:10px;position:relative}
@@ -103,10 +104,18 @@ main{max-width:760px;margin:0 auto;padding:14px}
 mark{background:#ffe8a3;color:inherit;border-radius:3px;padding:0 1px}
 /* library */
 .lib h3{margin:14px 0 6px;font-size:15px;color:var(--deep)}
-.file{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);
-  border-radius:10px;padding:11px 12px;margin:6px 0;font-size:14px;text-decoration:none;color:var(--ink)}
+.file{display:flex;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:11px 12px;margin:6px 0;font-size:14px;text-decoration:none;color:var(--ink);cursor:pointer}
 .file:active{background:#fbf3df}
 .file .fic{opacity:.6}
+/* in-app document viewer */
+.dochead{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.docname{font-weight:700;font-size:16px;flex:1;line-height:1.3}
+.docopen{flex:0 0 auto;background:var(--amber);color:#fff;text-decoration:none;font-weight:700;
+  font-size:14px;padding:8px 14px;border-radius:10px}
+.docnote{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.docframe{width:100%;height:72vh;min-height:380px;border:1px solid var(--line);border-radius:12px;background:#fff}
 .empty{text-align:center;color:var(--muted);padding:40px 10px;font-size:14px}
 footer{max-width:760px;margin:8px auto 24px;padding:0 14px;color:var(--muted);font-size:11.5px;text-align:center}
 a{color:var(--deep)}
@@ -153,7 +162,7 @@ a{color:var(--deep)}
 <body>
 <header>
   <div class="bar">
-    <button class="back" id="back" aria-label="Back">‹</button>
+    <button class="back" id="back" aria-label="Back"><span class="chev">‹</span>Back</button>
     <div class="title"><span class="hx">⬡</span><span id="htitle">Bee Field Guide</span></div>
   </div>
   <div class="search">
@@ -197,10 +206,15 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {v:'library',  ic:'📚', nm:'Course Library', sub:'All your course files'},
   ];
 
-  let quiz = null;  // active practice-test session
+  let quiz = null;    // active practice-test session
+  let curDoc = null;  // file open in the in-app viewer
   function go(v){ view=v; if(v!=='glossary') alpha=''; if(v!=='quiz') quiz=null;
     q.value=''; clr.classList.remove('show'); window.scrollTo(0,0); render(); }
-  back.onclick = ()=>{ if(view==='quiz' && quiz){ quiz=null; return render(); } go('home'); };
+  back.onclick = ()=>{
+    if(view==='doc'){ curDoc=null; view='library'; return render(); }
+    if(view==='quiz' && quiz){ quiz=null; return render(); }
+    go('home');
+  };
 
   function render(){
     const term = q.value.trim();
@@ -208,9 +222,10 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     htitle.textContent = term ? 'Search' :
       ({home:'Bee Field Guide',glossary:'Glossary',inspect:'Inspection Checklist',
         varroa:'Varroa Treatments',disease:'Disease & Pest ID',facts:'Quick Reference',
-        quiz:'Practice Test', library:'Course Library'}[view]);
+        quiz:'Practice Test', library:'Course Library', doc:(curDoc?curDoc.title:'File')}[view]);
     if(term){ app.innerHTML = renderSearch(term); bindGlossary(); return; }
     if(view==='home') return renderHome();
+    if(view==='doc') return renderDoc();
     if(view==='glossary') return renderGlossary();
     if(view==='inspect') return renderInspect();
     if(view==='varroa') return renderVarroa();
@@ -391,13 +406,27 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
       '<p class="lead">Your full Cornell Master Beekeeping course. Tap any file to open it.</p>'+
       '<div class="lib">'+
       D.library.map(m=>`<h3>${esc(m.mod)}</h3>`+
-        m.files.map(f=>{
+        m.files.map((f,fi)=>{
           const ic = f.url.toLowerCase().endsWith('.gif') ? '🖼️' : '📄';
           const sz = f.kb ? ` <span class="muted" style="font-size:11.5px">${f.kb>=1024?(f.kb/1024).toFixed(1)+' MB':f.kb+' KB'}</span>` : '';
-          return `<a class="file" href="${LIB_BASE}${esc(f.url)}" target="_blank" rel="noopener">`+
-            `<span class="fic">${ic}</span><span>${esc(f.title)}${sz}</span><span style="margin-left:auto;color:var(--amber)">›</span></a>`;
+          return `<button class="file" data-mod="${esc(m.mod)}" data-fi="${fi}">`+
+            `<span class="fic">${ic}</span><span>${esc(f.title)}${sz}</span><span style="margin-left:auto;color:var(--amber)">›</span></button>`;
         }).join('')
       ).join('')+'</div>';
+    app.querySelectorAll('.file').forEach(b=>b.onclick=()=>{
+      const mod = D.library.find(m=>m.mod===b.dataset.mod);
+      openDoc(mod.files[+b.dataset.fi]);
+    });
+  }
+
+  function openDoc(f){ curDoc=f; view='doc'; window.scrollTo(0,0); render(); }
+  function renderDoc(){
+    const f = curDoc, src = LIB_BASE + f.url;
+    app.innerHTML =
+      `<div class="dochead"><div class="docname">${esc(f.title)}</div>`+
+      `<a class="docopen" href="${src}" target="_blank" rel="noopener">Open ↗</a></div>`+
+      `<div class="docnote">Tap <b>‹ Back</b> above to return to the library. If the preview doesn’t load, use <b>Open ↗</b>.</div>`+
+      `<iframe class="docframe" src="${src}" title="${esc(f.title)}"></iframe>`;
   }
 
   // ---- search across everything ----
