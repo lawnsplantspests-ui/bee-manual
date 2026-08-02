@@ -1,6 +1,6 @@
 // Bee Field Guide — offline service worker
 // Bump CACHE version whenever index.html changes so phones pull the new copy.
-const CACHE = 'bee-guide-v2';
+const CACHE = 'bee-guide-v3';
 const ASSETS = [
   './',
   './index.html',

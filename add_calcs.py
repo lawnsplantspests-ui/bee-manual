@@ -23,6 +23,7 @@ NEW = r'''  // ---- Calculators ----
     {id:'color', ic:'👑', nm:'Queen color'},
     {id:'patty', ic:'🥞', nm:'Pollen patty'},
     {id:'mead',  ic:'🍶', nm:'Mead'},
+    {id:'brood', ic:'⏱️', nm:'Brood cycle'},
   ];
 
   function ci(label, id, attrs){ return '<div class="cinput"><label>'+label+'</label><input id="'+id+'" '+attrs+'></div>'; }
@@ -40,7 +41,7 @@ NEW = r'''  // ---- Calculators ----
       '<div id="calcBody"></div>';
     app.querySelectorAll('.cchip').forEach(b=>b.onclick=()=>{ calcPick=b.dataset.c; renderCalc(); });
     ({mite:cMite, syrup:cSyrup, oxalic:cOxalic, feed:cFeed, yield:cYield,
-      moist:cMoist, queen:cQueen, color:cColor, patty:cPatty, mead:cMead})[calcPick]();
+      moist:cMoist, queen:cQueen, color:cColor, patty:cPatty, mead:cMead, brood:cBrood})[calcPick]();
   }
   function body(html){ document.getElementById('calcBody').innerHTML = html; }
 
@@ -246,6 +247,43 @@ NEW = r'''  // ---- Calculators ----
     });
   }
 
+  // --- Brood cycle & queen dates
+  function cBrood(){
+    body('<div class="card"><h3>⏱️ Brood cycle</h3>'+
+      cs('Counting from','b_m','<option value="graft" selected>The day I grafted</option><option value="queen">Egg laid — queen</option><option value="worker">Egg laid — worker</option><option value="drone">Egg laid — drone</option><option value="capped">Queen cell seen capped</option>')+
+      ci('Date','b_d','type="date"')+
+      '<div id="b_out" class="cout"></div>'+
+      '<table style="width:100%;border-collapse:collapse;font-size:13.5px;margin-top:12px">'+
+      '<tr><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Stage</th>'+
+      '<th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Queen</th>'+
+      '<th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Worker</th>'+
+      '<th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Drone</th></tr>'+
+      [['Egg','3 d','3 d','3 d'],['Larva','5½ d','6 d','6½ d'],['Capped on day','8','9','10'],
+       ['Pupa','7½ d','12 d','14½ d'],['<b>Emerges day</b>','<b>16</b>','<b>21</b>','<b>24</b>']]
+        .map(r=>'<tr>'+r.map((c,i)=>'<td style="padding:5px 4px;border-bottom:1px solid var(--line)'+(i===0?';color:var(--muted)':'')+'">'+c+'</td>').join('')+'</tr>').join('')+
+      '</table>'+
+      '<div class="note">A queen and a worker start as the same egg — the difference is royal jelly for the whole larval stage instead of just three days. That is why an emergency queen has to come from a larva under about three days old.</div></div>');
+    const d0=new Date();
+    document.getElementById('b_d').value=[d0.getFullYear(),String(d0.getMonth()+1).padStart(2,'0'),String(d0.getDate()).padStart(2,'0')].join('-');
+    const EV={
+      graft:[[0,'Graft — larvae 12–36 hours old'],[1,'Check acceptance'],[5,'Cells capped'],[10,'MOVE CELLS to mating nucs'],[11,'Queens emerge'],[16,'Mating flights begin'],[20,'Should be mated'],[24,'First eggs'],[31,'Evaluate the pattern']],
+      queen:[[0,'Egg laid'],[3,'Egg hatches'],[8,'Cell capped'],[16,'Queen emerges'],[20,'Mating flights'],[25,'Laying begins']],
+      worker:[[0,'Egg laid'],[3,'Egg hatches'],[9,'Cell capped'],[21,'Emerges'],[23,'Working as a nurse bee']],
+      drone:[[0,'Egg laid'],[3,'Egg hatches'],[10,'Cell capped'],[24,'Emerges'],[38,'Sexually mature']],
+      capped:[[0,'Cell capped — this was an egg 8 days ago'],[8,'Queen emerges'],[12,'Mating flights'],[17,'First eggs'],[24,'Evaluate']]
+    };
+    on(['b_m','b_d'], ()=>{
+      const raw=val('b_d'); if(!raw) return out('b_out','','Pick a date.');
+      const p=raw.split('-').map(Number), day=n=>new Date(p[0],p[1]-1,p[2]+n);
+      const f=x=>x.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+      const now=new Date(); const tod=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+      out('b_out','good', EV[val('b_m')].map(r=>{
+        const dt=day(r[0]), past=dt<tod;
+        return '<div style="margin:3px 0'+(past?';opacity:.45':'')+'"><b>'+f(dt)+'</b> <span style="opacity:.7">day '+r[0]+'</span> — '+r[1]+'</div>';
+      }).join(''));
+    });
+  }
+
   // --- Mead
   function cMead(){
     body('<div class="card"><h3>🍶 Mead</h3>'+
@@ -273,10 +311,10 @@ i = html.index(START)
 j = html.index(END)
 html = html[:i] + NEW + html[j:]
 
-# Home tile subtitle
-html = html.replace(
-    "{v:'calc',     ic:'🧮', nm:'Calculators', sub:'Mite wash & sugar syrup'},",
-    "{v:'calc',     ic:'🧮', nm:'Calculators', sub:'10 field calculators'},")
+# Home tile subtitle — rewrite whatever is there now, so re-runs stay accurate.
+N = NEW.count("{id:'")
+html = re.sub(r"(\{v:'calc',\s*ic:'🧮', nm:'Calculators', sub:')[^']*(')",
+              r"\g<1>%d field calculators\g<2>" % N, html)
 
 # Chip styling for the calculator picker, added once next to the existing .cout rules.
 CHIP_CSS = (".cchips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}\n"
@@ -290,4 +328,4 @@ if ".cchips{" not in html:
 with io.open(PATH, "w", encoding="utf-8", newline="") as f:
     f.write(html)
 
-print("index.html: Calculators view replaced with %d calculators" % 10)
+print("index.html: Calculators view replaced with %d calculators" % N)
