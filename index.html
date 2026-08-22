@@ -229,7 +229,7 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {v:'varroa',   ic:'🪲', nm:'Varroa Treatments', sub:'Compare 8 mite treatments'},
     {v:'disease',  ic:'🩺', nm:'Disease & Pest ID', sub:'Spot it in the field'},
     {v:'calendar', ic:'📅', nm:'Seasonal Calendar', sub:'What to do this month (NE)'},
-    {v:'calc',     ic:'🧮', nm:'Calculators', sub:'11 field calculators'},
+    {v:'calc',     ic:'🧮', nm:'Calculators', sub:'21 field calculators'},
     {v:'facts',    ic:'📐', nm:'Quick Reference', sub:'Key numbers & rules of thumb'},
     {v:'quiz',     ic:'📝', nm:'Practice Test', sub:D.quiz.length+' questions, exam prep'},
     {v:'oral',     ic:'🎤', nm:'Oral Exam Prep', sub:'Topics, template & talking points'},
@@ -383,6 +383,16 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {id:'patty', ic:'🥞', nm:'Pollen patty'},
     {id:'mead',  ic:'🍶', nm:'Mead'},
     {id:'brood', ic:'⏱️', nm:'Brood cycle'},
+    {id:'cstr',  ic:'🐝', nm:'Colony strength'},
+    {id:'labl',  ic:'🏷️', nm:'Label helper'},
+    {id:'wax',   ic:'🕯️', nm:'Beeswax'},
+    {id:'hprice',ic:'💲', nm:'Honey pricing'},
+    {id:'costs', ic:'💵', nm:'Startup costs'},
+    {id:'nectar',ic:'🌼', nm:'Nectar flow'},
+    {id:'miteplan',ic:'🗓️', nm:'Varroa season plan'},
+    {id:'firstyr',ic:'🌱', nm:'First-year plan'},
+    {id:'hwt',   ic:'⚖️', nm:'Hive weight log'},
+    {id:'forage',ic:'🗺️', nm:'Forage range'},
   ];
 
   function ci(label, id, attrs){ return '<div class="cinput"><label>'+label+'</label><input id="'+id+'" '+attrs+'></div>'; }
@@ -394,15 +404,529 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
 
   function renderCalc(){
     app.innerHTML =
-      '<p class="lead">Field calculators. Everything runs offline and nothing is saved.</p>'+
+      '<p class="lead">Field calculators. Everything runs offline. Most save nothing; the hive weight log saves entries on this device only.</p>'+
       '<div class="cchips">'+CALCS.map(c=>
         '<button class="cchip'+(c.id===calcPick?' on':'')+'" data-c="'+c.id+'">'+c.ic+' '+c.nm+'</button>').join('')+'</div>'+
       '<div id="calcBody"></div>';
     app.querySelectorAll('.cchip').forEach(b=>b.onclick=()=>{ calcPick=b.dataset.c; renderCalc(); });
     ({mite:cMite, syrup:cSyrup, oxalic:cOxalic, feed:cFeed, yield:cYield,
-      moist:cMoist, queen:cQueen, color:cColor, patty:cPatty, mead:cMead, brood:cBrood})[calcPick]();
+      moist:cMoist, queen:cQueen, color:cColor, patty:cPatty, mead:cMead, brood:cBrood,
+      cstr:cColonyStrength, labl:cLabels, wax:cWax, hprice:cHoneyPrice, costs:cCosts,
+      nectar:cNectar, miteplan:cMitePlan, firstyr:cFirstYear, hwt:cHiveWeight, forage:cForage})[calcPick]();
   }
   function body(html){ document.getElementById('calcBody').innerHTML = html; }
+
+  // --- Colony strength
+  function cColonyStrength(){
+    body('<div class="card"><h3>🐝 Colony strength</h3>'+
+      ci('Deep frames covered in bees','cs_deep','type="number" inputmode="decimal" min="0" step="0.5" value="8"')+
+      ci('Medium frames covered in bees','cs_med','type="number" inputmode="decimal" min="0" step="0.5" value="0"')+
+      ci('Frames of brood, all stages','cs_brood','type="number" inputmode="decimal" min="0" step="0.5" value="5"')+
+      ci('Frames drawn in top box','cs_drawn','type="number" inputmode="decimal" min="0" step="0.5" value="7"')+
+      cs('Frames per box','cs_box','<option value="10" selected>10-frame</option><option value="8">8-frame</option>')+
+      cs('Time of year','cs_seas','<option value="spring">Spring build-up</option><option value="flow" selected>Main flow</option><option value="dearth">Summer dearth</option><option value="fall">Going into winter</option>')+
+      '<div id="cs_out" class="cout"></div>'+
+      '<div class="note">Count a frame as one if bees cover it wall to wall on both sides, half if only one side. Do it early on a cool morning before foragers are out or the count runs low by a third.</div></div>');
+    on(['cs_deep','cs_med','cs_brood','cs_drawn','cs_box','cs_seas'], ()=>{
+      const deep=Math.max(0,num('cs_deep')||0), med=Math.max(0,num('cs_med')||0);
+      const brood=Math.max(0,num('cs_brood')||0), drawn=Math.max(0,num('cs_drawn')||0);
+      const perBox=parseFloat(val('cs_box')), season=val('cs_seas');
+      const DEEP=2200, MEDB=1500, PERLB=3500;
+      const total=deep*DEEP+med*MEDB, framesEq=deep+med*(MEDB/DEEP);
+      const forager= season==='fall'?0.15:season==='spring'?0.28:0.35;
+      let cls,label;
+      if(framesEq>=16){cls='good';label='Very strong';}
+      else if(framesEq>=10){cls='good';label='Strong';}
+      else if(framesEq>=6){cls='mid';label='Building';}
+      else if(framesEq>=3){cls='mid';label='Weak';}
+      else {cls='low';label='Very weak';}
+      const v=[];
+      if(framesEq>=10 && brood>=6 && (season==='spring'||season==='flow'))
+        v.push('<b>Ready to split.</b> '+framesEq.toFixed(0)+' frames of bees and '+brood+' of brood is enough for two colonies that both stand a chance.');
+      else if(season==='dearth'||season==='fall')
+        v.push('<b>Wrong time to split.</b> Both halves would be too small to build up before winter — wait for spring, or requeen instead.');
+      else if(framesEq>=10 && brood<6)
+        v.push('<b>Bees yes, brood no.</b> Only '+brood+' frames of brood — check whether the queen is failing before dividing.');
+      else
+        v.push('<b>Not strong enough to split yet.</b> Aim for about 10 deep frames of bees and 6 of brood first.');
+      const drawnShare=perBox>0?drawn/perBox:0;
+      if(season==='fall'||season==='dearth') v.push('<b>No super needed now</b> — there is no flow to fill it.');
+      else if(drawnShare>=0.7 && framesEq>=8) v.push('<b>Put a super on.</b> '+drawn+' of '+perBox+' frames drawn with the bees to fill more — waiting past this invites swarming.');
+      else if(drawnShare>=0.7) v.push('<b>Space yes, bees no.</b> The box is drawn but there are not enough bees to work another — feed and wait.');
+      else v.push('<b>Not yet.</b> Add the next box around 70% drawn — currently at '+drawn+' of '+perBox+'.');
+      if(season==='fall'){
+        if(framesEq>=8) v.push('<b>Big enough to winter</b>, given the stores to burn.');
+        else if(framesEq>=5) v.push('<b>Marginal for winter.</b> Combining with a stronger colony usually beats losing both.');
+        else v.push('<b>Too small to winter.</b> Combine it now.');
+      }
+      out('cs_out',cls,'<b>'+Math.round(total).toLocaleString()+' bees</b> — about '+framesEq.toFixed(1)+' deep-frame equivalents — <b>'+label+'</b><br>'+
+        'Foragers out flying: ~'+Math.round(total*forager).toLocaleString()+' — Weight: '+(total/PERLB).toFixed(1)+' lb — Mites at 3%: ~'+Math.round(total*0.03).toLocaleString()+
+        '<br><br>'+v.join('<br>'));
+    });
+  }
+
+  // --- Honey label helper
+  function cLabels(){
+    body('<div class="card"><h3>🏷️ Honey label helper</h3>'+
+      cs('Jar size','lb_jar','<option value="2">2 oz — sample / favor</option><option value="8">8 oz</option><option value="12">12 oz</option><option value="16" selected>16 oz (1 lb)</option><option value="24">24 oz (1.5 lb)</option><option value="32">32 oz (2 lb)</option><option value="48">48 oz (3 lb)</option><option value="80">80 oz (5 lb)</option><option value="custom">Something else...</option>')+
+      ci('Custom net weight (oz)','lb_custom','type="number" inputmode="decimal" min="0.1" step="0.1" value="16"')+
+      ci('Front panel area (sq in)','lb_area','type="number" inputmode="decimal" min="0.5" step="0.5" value="12"')+
+      '<div id="lb_out" class="cout"></div>'+
+      '<div class="note">Both customary and metric are required, in the bottom 30% of the front panel. Not required for pure honey: an ingredient list. Usually exempt under 100,000 units a year: Nutrition Facts, but file FDA form 8100 to claim it. Strongly advised: an infant-botulism warning. Selling in PA generally needs a Limited Food Establishment registration — call the regional PDA office.</div></div>');
+    on(['lb_jar','lb_custom','lb_area'], ()=>{
+      const jarV=val('lb_jar'); const o = jarV==='custom' ? Math.max(0.1,num('lb_custom')||1) : parseFloat(jarV);
+      const g=o*28.3495;
+      const metric = g>=1000 ? (g/1000).toFixed(2).replace(/0$/,'')+' kg' : (g<100?g.toFixed(1).replace(/\.0$/,''):String(Math.round(g)))+' g';
+      let customary='NET WT '+(+o.toFixed(2))+' OZ';
+      if(o>=16){
+        const lbn=Math.floor(o/16), rem=+(o-lbn*16).toFixed(2);
+        const lbPart = rem===0 ? lbn+' LB' : (o/16)%1===0.5 ? lbn+' 1/2 LB' : lbn+' LB '+rem+' OZ';
+        customary+=' ('+lbPart+')';
+      }
+      const area=Math.max(0.5,num('lb_area')||1);
+      const TYPE=[[5,'1/16 in (~4.5 pt)'],[25,'1/8 in (~9 pt)'],[100,'3/16 in (~13.5 pt)'],[400,'1/4 in (~18 pt)'],[1e9,'1/2 in (~36 pt)']];
+      const row=TYPE.find(t=>area<=t[0]);
+      out('lb_out','good','<b>'+customary+' ('+metric+')</b><br>Minimum net-weight type height: <b>'+row[1]+'</b>');
+    });
+  }
+
+  // --- Beeswax rendering and products
+  function cWax(){
+    body('<div class="card"><h3>🕯️ Beeswax rendering</h3>'+
+      ci('Raw material (lb)','wx_raw','type="number" inputmode="decimal" min="0" step="0.5" value="10"')+
+      cs('What is being rendered','wx_src','<option value="0.80">Cappings, drained and washed</option><option value="0.62" selected>Cappings, still sticky</option><option value="0.50">Light comb — burr or new white</option><option value="0.33">Older comb — a season or two of brood</option><option value="0.22">Old black brood comb</option>')+
+      '<div id="wx_out" class="cout"></div>'+
+      '<div class="note">Wash sticky cappings before rendering — they run about a third honey by weight, and washing keeps that honey and improves the wax yield. Never render over direct heat: beeswax flashes near 400 F.</div></div>'+
+      '<div class="card"><h3>What it makes</h3>'+
+      cs('Product','wx_prod','<option value="lip" selected>Lip balm tubes</option><option value="tin">Salve / balm tins</option><option value="candle">Container candles</option><option value="block">Blocks and bars</option>')+
+      ci('Unit size (oz)','wx_size','type="number" inputmode="decimal" min="0.01" step="0.01" value="0.15"')+
+      ci('Wax share of recipe (%)','wx_pct','type="number" inputmode="decimal" min="1" max="100" step="1" value="33"')+
+      ci('Packaging each ($)','wx_pkg','type="number" inputmode="decimal" min="0" step="0.01" value="0.28"')+
+      ci('Other ingredients each ($)','wx_other','type="number" inputmode="decimal" min="0" step="0.01" value="0.35"')+
+      ci('Selling price each ($)','wx_price','type="number" inputmode="decimal" min="0" step="0.25" value="4.00"')+
+      '<div id="wx_out2" class="cout"></div></div>');
+    const RAWPRICE=12;
+    const WXP={ lip:{size:0.15,pct:33,pkg:0.28,other:0.35,price:4}, tin:{size:2,pct:20,pkg:0.75,other:2.20,price:12},
+      candle:{size:8,pct:100,pkg:2.10,other:0.45,price:22}, block:{size:1,pct:100,pkg:0.15,other:0.05,price:3} };
+    function calcAll(){
+      const raw=Math.max(0,num('wx_raw')||0), yp=parseFloat(val('wx_src'));
+      const waxLb=raw*yp, slum=raw-waxLb;
+      out('wx_out','good','<b>'+waxLb.toFixed(1)+' lb clean wax</b> from '+raw.toFixed(1)+' lb raw ('+(yp*100).toFixed(0)+'% yield) — slumgum '+slum.toFixed(1)+' lb — raw value ~$'+(waxLb*RAWPRICE).toFixed(0));
+      const kind=val('wx_prod'), p=WXP[kind];
+      const sizeOz=Math.max(0.01,num('wx_size')||0), pct=Math.min(100,Math.max(1,num('wx_pct')||1))/100;
+      const pkg=Math.max(0,num('wx_pkg')||0), other=Math.max(0,num('wx_other')||0), price=Math.max(0,num('wx_price')||0);
+      const fillOz= kind==='candle' ? sizeOz*0.9 : sizeOz;
+      const waxPerUnitLb=(fillOz*pct)/16;
+      const units= waxPerUnitLb>0 ? Math.floor(waxLb/waxPerUnitLb) : 0;
+      const waxCostEach=waxPerUnitLb*RAWPRICE, costEach=pkg+other+waxCostEach, marginEach=price-costEach, totalV=units*price;
+      const cls = marginEach<=0?'low':marginEach/price<0.4?'mid':'good';
+      out('wx_out2',cls,'<b>'+units.toLocaleString()+' units</b> from this batch — wax cost each $'+waxCostEach.toFixed(2)+' — total cost each $'+costEach.toFixed(2)+
+        '<br>Margin each: '+(marginEach>=0?'$'+marginEach.toFixed(2):'-$'+Math.abs(marginEach).toFixed(2))+' — batch value ~$'+totalV.toFixed(0));
+    }
+    document.getElementById('wx_prod').addEventListener('change', ()=>{
+      const p=WXP[val('wx_prod')];
+      document.getElementById('wx_size').value=p.size; document.getElementById('wx_pct').value=p.pct;
+      document.getElementById('wx_pkg').value=p.pkg; document.getElementById('wx_other').value=p.other; document.getElementById('wx_price').value=p.price;
+      calcAll();
+    });
+    ['wx_raw','wx_src','wx_size','wx_pct','wx_pkg','wx_other','wx_price'].forEach(id=>{
+      const el=document.getElementById(id); el.oninput=calcAll; el.onchange=calcAll;
+    });
+    calcAll();
+  }
+
+  // --- Honey pricing
+  function cHoneyPrice(){
+    body('<div class="card"><h3>💲 Honey pricing</h3>'+
+      ci('Jar size, oz net honey','hp_size','type="number" inputmode="decimal" min="1" step="1" value="16"')+
+      ci('Jar plus lid each ($)','hp_jar','type="number" inputmode="decimal" min="0" step="0.05" value="0.85"')+
+      ci('Label each ($)','hp_label','type="number" inputmode="decimal" min="0" step="0.01" value="0.18"')+
+      ci('What the bees cost per year ($)','hp_annual','type="number" inputmode="decimal" min="0" step="1" value="206"')+
+      ci('Pounds of honey for that','hp_crop','type="number" inputmode="decimal" min="1" step="5" value="80"')+
+      ci('Hours of time per year','hp_hours','type="number" inputmode="decimal" min="0" step="1" value="24"')+
+      ci('Selling price for this jar ($)','hp_price','type="number" inputmode="decimal" min="0" step="0.5" value="14"')+
+      ci('Value time at ($/hr)','hp_wage','type="number" inputmode="decimal" min="0" step="1" value="20"')+
+      cs('Include time in the cost?','hp_mode','<option value="no" selected>No, it is a hobby</option><option value="yes">Yes, treat it as a business</option>')+
+      '<div id="hp_out" class="cout"></div>'+
+      '<div class="note">Do not price against the grocery-store bear — that is an imported blend, a different product. Wholesale wants 45 to 55% off retail for volume and consistency; it is a different business, not half a sale.</div></div>');
+    on(['hp_size','hp_jar','hp_label','hp_annual','hp_crop','hp_hours','hp_price','hp_wage','hp_mode'], ()=>{
+      const sizeOz=Math.max(1,num('hp_size')||1), jar=Math.max(0,num('hp_jar')||0), label=Math.max(0,num('hp_label')||0);
+      const annual=Math.max(0,num('hp_annual')||0), crop=Math.max(1,num('hp_crop')||1), hours=Math.max(0,num('hp_hours')||0);
+      const price=Math.max(0,num('hp_price')||0), wage=Math.max(0,num('hp_wage')||0), withTime=val('hp_mode')==='yes';
+      const lbPerJar=sizeOz/16, honeyCostPerLb=annual/crop, timeCostPerLb= withTime ? (hours*wage)/crop : 0;
+      const honeyCost=(honeyCostPerLb+timeCostPerLb)*lbPerJar, packaging=jar+label, costV=honeyCost+packaging;
+      const margin=price-costV, marginPct= price>0? margin/price:0;
+      let cls,lab;
+      if(margin<0){cls='low';lab='Losing money on every jar';}
+      else if(marginPct<0.25){cls='mid';lab='Very thin margin';}
+      else if(marginPct<0.5){cls='mid';lab='Workable, not generous';}
+      else {cls='good';lab='Solid margin';}
+      const channels=[['Farm stand',1.00],['Farmers market',0.95],['Wholesale',0.55],['Consignment',0.75]]
+        .map(([n,mult])=>{ const got=price*mult, m=got-costV; return n+': $'+got.toFixed(2)+' ('+(m>=0?'+':'-')+'$'+Math.abs(m).toFixed(2)+')'; }).join(' — ');
+      out('hp_out',cls,'<b>'+(margin>=0?'$':'-$')+Math.abs(margin).toFixed(2)+' margin</b> on this jar ('+(marginPct*100).toFixed(0)+'%) — <b>'+lab+'</b><br>'+
+        'Cost: $'+costV.toFixed(2)+' ('+lbPerJar.toFixed(2)+' lb honey plus $'+packaging.toFixed(2)+' packaging)'+(withTime?', including time':'')+
+        '<br>By channel — '+channels);
+    });
+  }
+
+  // --- Startup and running costs
+  function cCosts(){
+    body('<div class="card"><h3>💵 Beekeeping costs</h3>'+
+      ci('Hives starting with','cb_hives','type="number" inputmode="numeric" min="1" max="50" step="1" value="2"')+
+      cs('How you buy','cb_tier','<option value="budget">Budget — cheapest vendor each item</option><option value="mid" selected>Middle — one or two good suppliers</option><option value="premium">Premium — assembled, painted, top gear</option>')+
+      cs('Where the bees come from','cb_bees','<option value="nuc" selected>Nucs — 5 frames, $200 each</option><option value="package">Packages — 3 lb, $165 each</option><option value="swarm">Caught swarms — free</option>')+
+      cs('Extraction gear','cb_ex','<option value="none" selected>Borrow or club extractor</option><option value="crush">Crush and strain kit</option><option value="manual">2-frame manual extractor</option><option value="electric">6-frame electric extractor</option>')+
+      ci('Honey per hive per year (lb)','cb_yield','type="number" inputmode="decimal" min="0" step="5" value="40"')+
+      ci('Honey price ($/lb)','cb_price','type="number" inputmode="decimal" min="0" step="0.5" value="12"')+
+      '<div id="cb_out" class="cout"></div>'+
+      '<div class="note">Two hives cost far less than twice one — the suit, smoker and extractor are bought once. What people leave off: mite treatments, autumn sugar, replacement frames, jars and labels, a stand, fuel to the out-yard.</div></div>');
+    const PER_HIVE={
+      budget:[['Deep box + frames',45],['2nd deep + frames',45],['Medium super + frames',40],['Cover',18.95],['Inner cover',12.95],['Bottom board',25.99],['Entrance reducer',1.99],['Feeder',9.99],['Stand',15]],
+      mid:[['Deep box + frames',62],['2nd deep + frames',62],['Medium super + frames',55],['Cover',25],['Inner cover',16],['Bottom board',30],['Entrance reducer',3],['Feeder',18],['Queen excluder',15],['Stand',25]],
+      premium:[['Deep box + frames, assembled',95],['2nd deep, assembled',95],['Medium super, assembled',80],['Cover',33],['Inner cover',18],['Screened bottom board',40],['Entrance reducer',4],['Feeder',25],['Metal queen excluder',25],['Stand',45]]
+    };
+    const SHARED={
+      budget:[['Jacket + veil',39],['Gloves',14.59],['Smoker',24.99],['Hive tool',6.95],['Misc',15]],
+      mid:[['Full suit + veil',80],['Gloves',20],['Smoker',33],['Hive tool',13],['Uncapping knife and tub',60],['Misc',30]],
+      premium:[['Ventilated suit',180],['Goatskin gloves',30],['Stainless smoker',48],['Hive tools, x2',28],['Uncapping tank and knife',180],['Refractometer',45],['Misc',50]]
+    };
+    const BEES={nuc:['Nuc, 5 frames',200],package:['Package, 3 lb with queen',165],swarm:['Caught swarm',0]};
+    const EXTRACT={none:['Club or borrowed extractor',0],crush:['Crush and strain kit',55],manual:['2-frame manual extractor',320],electric:['6-frame electric extractor',850]};
+    const ANNUAL=[['Mite treatments',35],['Autumn sugar, ~50 lb',35],['Frames and foundation',18],['Misc',15]];
+    const money=n=>'$'+n.toLocaleString(undefined,{maximumFractionDigits:0});
+    on(['cb_hives','cb_tier','cb_bees','cb_ex','cb_yield','cb_price'], ()=>{
+      const hives=Math.max(1,Math.min(50,num('cb_hives')||1)), tier=val('cb_tier'), beesKey=val('cb_bees'), exKey=val('cb_ex');
+      const yieldLb=Math.max(0,num('cb_yield')||0), price=Math.max(0,num('cb_price')||0);
+      const perHive=PER_HIVE[tier], shared=SHARED[tier];
+      const beeRow=BEES[beesKey], exRow=EXTRACT[exKey];
+      const perHiveTotal=perHive.reduce((a,r)=>a+r[1],0), sharedTotal=shared.reduce((a,r)=>a+r[1],0);
+      const equipTotal=perHiveTotal*hives, beesTotal=beeRow[1]*hives;
+      const startup=equipTotal+sharedTotal+beesTotal+exRow[1];
+      const annual=ANNUAL.reduce((a,r)=>a+r[1],0)*hives;
+      const income=yieldLb*price*hives, net=income-annual;
+      let cls,label;
+      if(income<=0){cls='mid';label='No honey income yet, normal for year one';}
+      else if(net<=0){cls='low';label='Running costs exceed the honey';}
+      else if(startup/net>6){cls='mid';label='Long payback';}
+      else {cls='good';label='Pays for itself in a few seasons';}
+      const breakEven = income<=0?'-':net<=0?'never at this yield':(startup/net).toFixed(1)+' yrs';
+      const line=(n,p)=>'<div class="kv"><b>'+n+'</b><span>'+money(p)+'</span></div>';
+      const bill = '<div class="note" style="margin-top:10px"><b>Startup, itemized</b></div>'+
+        perHive.map(r=>line(r[0]+' x'+hives,r[1]*hives)).join('')+
+        shared.map(r=>line(r[0],r[1])).join('')+
+        (exRow[1]>0?line(exRow[0],exRow[1]):'')+
+        line(beeRow[0]+(hives>1?' x'+hives:''),beesTotal);
+      out('cb_out',cls,'<b>'+money(startup)+' to start</b> — '+money(startup/hives)+' per hive — <b>'+label+'</b><br>'+
+        'Year one all-in: '+money(startup+annual)+' — Running per year: '+money(annual)+' — Honey income per year: '+(income>0?money(income):'-')+' — Break-even: '+breakEven+
+        bill);
+    });
+  }
+
+  // --- Nectar flow calendar
+  function cNectar(){
+    const PLANTS=[
+      ['Skunk cabbage',2.0,3.5,false,'First pollen of the year, out of wet ground before anything else.'],
+      ['Maple',3.0,4.2,false,'First real pollen plus a little nectar. Kicks off brood rearing.'],
+      ['Willow',3.3,4.5,false,'Excellent early pollen, heavy and yellow.'],
+      ['Dandelion',4.0,5.5,false,'Buildup fuel, carries the colony into the spring flow.'],
+      ['Redbud',4.1,4.8,false,'Pretty but minor in volume.'],
+      ['Fruit bloom',4.3,5.2,false,'Apple, cherry, pear, plum — good build-up forage.'],
+      ['Mustards and canola',4.2,5.6,false,'Heavy nectar; granulates in the comb fast, extract promptly.'],
+      ['Autumn olive',4.8,5.6,false,'Invasive, everywhere at field edges, worked hard.'],
+      ['Black locust',5.1,5.7,true,'THE spring flow. Water-white honey, huge volume, sometimes over in 10 days.'],
+      ['Tulip poplar',5.4,6.2,true,'Right behind locust and nearly as big. Dark amber, faintly smoky.'],
+      ['Bramble',5.3,6.5,false,'Steady, reliable, light honey.'],
+      ['White clover',5.6,7.8,true,'Classic table honey. Best in June; a wet June makes the clover year.'],
+      ['Birdsfoot trefoil',6.0,7.5,false,'Roadsides and old pasture, modest but dependable.'],
+      ['Sumac',6.0,6.8,false,'Field edges, dark honey, worked more than expected.'],
+      ['Basswood, linden',6.3,7.0,false,'Spectacular when it hits, but unreliable year to year.'],
+      ['Sweet clover',6.0,7.6,false,'Waste ground and roadsides, bridges into the dearth.'],
+      ['Chicory',6.8,9.5,false,'Minor, but something during the dry stretch.'],
+      ['Joe-pye weed',7.5,9.0,false,'Wet meadows, a useful bridge into the fall flow.'],
+      ['Japanese knotweed',8.4,9.6,true,'Invasive; a serious fall flow along creeks. Dark, tangy honey.'],
+      ['Goldenrod',8.5,10.2,true,'The fall flow that fills brood boxes for winter. Smells like old socks curing, that is normal.'],
+      ['Aster',9.0,10.5,false,'The last of it, important late pollen for winter bees.']
+    ];
+    function bar(s,e,major){
+      let h='';
+      for(let m=1;m<=12;m++){
+        const on2=m+0.5>=s && m-0.5<=e;
+        h+='<span style="display:inline-block;width:7%;height:14px;border-radius:2px;margin-right:.6%;background:'+(on2&&major?'var(--amber)':on2?'#f0d49a':'#eee')+'"></span>';
+      }
+      return h;
+    }
+    const now=new Date(), m=now.getMonth()+1+(now.getDate()>15?0.5:0);
+    const blooming=PLANTS.filter(p=>m>=p[1]&&m<=p[2]);
+    const majors=blooming.filter(p=>p[3]);
+    const dearth = m>=7.3 && m<=8.4;
+    const nowLine = majors.length ? '<b>'+majors.map(p=>p[0]).join(' — ')+'</b> — a real flow is on, supers should be on'
+      : dearth ? '<b>Dearth</b> — little coming in, watch for robbing'
+      : blooming.length ? '<b>'+blooming.slice(0,4).map(p=>p[0]).join(' — ')+'</b> — minor forage'
+      : '<b>Nothing blooming</b> — winter, living on stores';
+    body('<div class="card"><h3>🌼 Nectar flow, south-central PA</h3>'+
+      '<div class="cout good">Around now: '+nowLine+'</div>'+
+      '<table style="width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px">'+
+      '<tr><th style="text-align:left;padding:4px 3px;border-bottom:1px solid var(--line)">Plant</th><th style="text-align:left;padding:4px 3px;border-bottom:1px solid var(--line)">J F M A M J J A S O N D</th></tr>'+
+      PLANTS.map(p=>'<tr><td style="padding:4px 3px;border-bottom:1px solid var(--line)"><b>'+p[0]+'</b>'+(p[3]?' <span class="pill" style="padding:1px 6px;font-size:9px">flow</span>':'')+'<br><span style="color:var(--muted);font-size:11.5px">'+p[4]+'</span></td>'+
+        '<td style="padding:4px 3px;border-bottom:1px solid var(--line);white-space:nowrap">'+bar(p[1],p[2],p[3])+'</td></tr>').join('')+
+      '</table>'+
+      '<div class="note">Bloom dates swing about two weeks either way with the season. Spring flow: mid-May to mid-June, locust and tulip poplar — get supers on before it starts. Dearth: mid-July through August. Fall flow: late August to early October, goldenrod and knotweed.</div></div>');
+  }
+
+  // --- Varroa season plan
+  function cMitePlan(){
+    body('<div class="card"><h3>🗓️ Varroa season plan</h3>'+
+      cs('Climate','mp_region','<option value="-4">Deep south — zone 8 and warmer</option><option value="-2">Upper south — zone 7</option><option value="0" selected>Mid-Atlantic — zone 6 (Harrisburg)</option><option value="2">Northern — zone 5</option><option value="3">Far north — zone 4 and colder</option>')+
+      cs('What you will use','mp_style','<option value="any" selected>Anything registered</option><option value="soft">Organic-approved only</option><option value="min">Least intervention that works</option>')+
+      cs('Run honey supers?','mp_supers','<option value="yes" selected>Yes</option><option value="no">No</option>')+
+      cs('Make splits or catch swarms?','mp_splits','<option value="yes" selected>Yes</option><option value="no">No</option>')+
+      '<div id="mp_out" class="cout"></div>'+
+      '<div id="mp_plan"></div>'+
+      '<div class="note">Most colonies that die in winter were killed in August — mites raised through summer wreck the winter bees before a problem shows. Rotate chemistry, and always re-wash 2 to 3 weeks after treating to confirm it worked.</div></div>');
+    const PLAN=[
+      {week:13,crit:false,what:'Baseline mite wash',thr:'Treat at 2%',why:'First look of the year. A high reading this early means the colony wintered loaded and will be unmanageable by July.',prod:'spring'},
+      {week:17,crit:false,what:'Spring treatment, only if baseline said so',thr:'Only if 2% or more',why:'Last clean chance before supers go on.',prod:'spring',skipMin:true},
+      {week:19,crit:false,what:'Drone brood removal begins',thr:'Mechanical',why:'Mites strongly prefer drone brood — pull and freeze a green drone frame each time it caps.',prod:'none'},
+      {week:24,crit:false,what:'Broodless window at the splits',thr:'Best oxalic timing all summer',why:'A queenless split runs itself broodless — the one summer moment a single oxalic treatment gets nearly all the mites.',prod:'oa',needSplits:true},
+      {week:28,crit:false,what:'Mid-season wash, supers still on',thr:'Treat at 3%',why:'The early warning. Formic is the one product legal over a honey crop.',prod:'supers',needSupers:true},
+      {week:31,crit:true,what:'Pull supers and treat',thr:'Treat at 2%, usually just treat',why:'The single most important date on this page. Winter bees are about to be raised, and mites now are what kill the colony in February.',prod:'main'},
+      {week:35,crit:false,what:'Follow-up wash, did it work',thr:'Want under 2%',why:'2 to 3 weeks after treating. If not under threshold, go again with something different.',prod:'none'},
+      {week:41,crit:false,what:'Last wash before winter',thr:'Want under 1%',why:'Winter bees are mostly in the box by now. Over 1% in October means narrow options left.',prod:'fall'},
+      {week:48,crit:false,what:'Broodless oxalic cleanup',thr:'Finishing move',why:'Nowhere left for a mite to hide once brood rearing stops — sets next spring up clean.',prod:'oa'}
+    ];
+    const PRODUCTS={
+      spring:{any:'Apivar, 42 days, Formic Pro (50-85 F), or oxalic if broodless.',soft:'Formic Pro at 50-85 F, or Apiguard once reliably over 60 F.',min:'Skip unless the wash demands it.'},
+      supers:{any:'Formic Pro is the only common option legal with supers on.',soft:'Formic Pro, supers can stay on, watch for over 85 F.',min:'Monitor only; pull supers early if forced.'},
+      main:{any:'Apivar (42 days) or Formic Pro (10 days). Rotate, do not run amitraz every year.',soft:'Formic Pro under 85 F, Apiguard over 60 F, or oxalic strips.',min:'Formic Pro, one treatment, penetrates cappings, out in 10 days.'},
+      fall:{any:'Apivar if time for 42 days, else oxalic once brood slows.',soft:'Oxalic extended-release, or wait for broodless and dribble.',min:'Wait for broodless, treat once with oxalic.'},
+      oa:{any:'Oxalic acid, dribble or vaporize, per the product label.',soft:'Oxalic acid, dribble or vaporize, per the product label.',min:'Oxalic acid, dribble or vaporize, per the product label.'},
+      none:null
+    };
+    const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    on(['mp_region','mp_style','mp_supers','mp_splits'], ()=>{
+      const shift=parseFloat(val('mp_region')), style=val('mp_style'), supers=val('mp_supers'), splits=val('mp_splits');
+      const year=new Date().getFullYear(), today=new Date();
+      const steps=PLAN.filter(p=>{
+        if(p.skipMin && style==='min') return false;
+        if(p.needSplits && splits!=='yes') return false;
+        if(p.needSupers && supers==='no') return false;
+        return true;
+      });
+      let nextStep=null;
+      const html=steps.map(p=>{
+        const d=new Date(year,0,1); d.setDate(d.getDate()+(p.week+shift)*7);
+        const end=new Date(d); end.setDate(end.getDate()+6);
+        const past=end<today;
+        if(!past && !nextStep) nextStep={p,d};
+        const sameMonth=d.getMonth()===end.getMonth();
+        const range= sameMonth ? MONTHS[d.getMonth()]+' '+d.getDate()+'-'+end.getDate() : MONTHS[d.getMonth()]+' '+d.getDate()+' to '+MONTHS[end.getMonth()]+' '+end.getDate();
+        const prod=PRODUCTS[p.prod]?PRODUCTS[p.prod][style]:null;
+        return '<div style="margin:10px 0;padding-left:10px;border-left:3px solid '+(p.crit?'#e0604d':'var(--amber)')+(past?';opacity:.45':'')+'">'+
+          '<div style="font-size:11px;text-transform:uppercase;color:var(--muted)">'+range+'</div>'+
+          '<div style="font-weight:700">'+p.what+' <span class="pill" style="padding:1px 7px;font-size:10px">'+p.thr+'</span></div>'+
+          '<div style="font-size:13px;color:var(--muted);margin-top:3px">'+p.why+'</div>'+
+          (prod?'<div style="font-size:12.5px;margin-top:4px"><b>Options:</b> '+prod+'</div>':'')+
+        '</div>';
+      }).join('');
+      document.getElementById('mp_plan').innerHTML=html;
+      if(nextStep){ out('mp_out','good','Next up — <b>'+nextStep.p.what+'</b>'); }
+      else { out('mp_out','mid','Season complete — next year starts with the spring baseline wash.'); }
+    });
+  }
+
+  // --- First-year plan
+  function cFirstYear(){
+    body('<div class="card"><h3>🌱 First-year plan</h3>'+
+      ci('Install date','fy_start','type="date"')+
+      cs('Starting with','fy_kind','<option value="package" selected>A package</option><option value="nuc">A nuc</option>')+
+      cs('Climate','fy_region','<option value="-4">Deep south — zone 8 and warmer</option><option value="-2">Upper south — zone 7</option><option value="0" selected>Mid-Atlantic — zone 6</option><option value="2">Northern — zone 5</option><option value="3">Far north — zone 4 and colder</option>')+
+      '<div id="fy_out" class="cout"></div>'+
+      '<div id="fy_plan"></div>'+
+      '<div class="note">A first-year colony probably will not be harvested for honey, and that is not a failure — everything it makes goes into comb and population for winter. Mites will surprise you: packages and nucs both arrive with them, so wash rather than guess.</div></div>');
+    const STEPS=[
+      {d:0,what:'Install day',pkgWhy:'Spray lightly with 1:1 syrup, dump them in, hang the queen cage candy-end up between two frames. Feed 1:1 from day one until the box is drawn.',nucWhy:'Move frames across in the same order, brood together in the middle. Feed 1:1 unless a strong flow is on.'},
+      {d:4,crit:true,pkgOnly:true,what:'Check the queen is out, and nothing else',pkgWhy:'Confirm the cage is empty; release by hand if not. A thirty-second job, do not go looking for her.'},
+      {d:8,what:'First real inspection, look for eggs',pkgWhy:'Eggs mean a laying queen. No eggs or young larvae is worth acting on now.',nucWhy:'Confirm she is laying and they are drawing the new frames. Keep syrup on until they are.'},
+      {d:21,what:'Add the second box when ready',pkgWhy:'Rule of thumb: seven of ten frames drawn and worked, not just present.',nucWhy:'This happens sooner than with a package, same seven-of-ten rule.',nucShift:-10},
+      {d:45,crit:true,what:'First mite wash',pkgWhy:'Yes, already — packages and nucs both arrive with mites. Under 2%, carry on; over, deal with it now.',nucWhy:'A nuc came from an established colony, and its mites. Wash to learn the starting number.'},
+      {d:75,what:'Second box filling, stop feeding if the flow is on',pkgWhy:'Syrup competes with a real flow, pull the feeder while it runs.',nucWhy:'Same — take feed off during the flow.'},
+      {wk:31,season:'fall',crit:true,what:'Mite wash and treat, decides winter',pkgWhy:'The bees raised over the next six weeks have to live until spring. Wash, and treat if anywhere near threshold. The most important day of the year.',nucWhy:'Same date, same reasoning — this decides whether there are bees next April.'},
+      {wk:35,season:'fall',what:'Follow-up wash',pkgWhy:'Two to three weeks after treating, count again, there is still time to redo if needed.',nucWhy:'Same — a treatment not verified is a treatment not done.'},
+      {wk:38,season:'fall',crit:true,what:'Weigh them and feed for winter',pkgWhy:'Heft or weigh, feed 2:1 until heavy. Once nights sit below 50 F they stop taking syrup, so this has a hard deadline.',nucWhy:'Same — heft, feed 2:1 while it is still warm enough to cure.'},
+      {wk:42,season:'fall',what:'Close up for winter',pkgWhy:'Entrance reducer, mouse guard, an upper vent or a slight tilt so condensation runs down the walls instead of onto the cluster.',nucWhy:'Same — reducer, mouse guard, somewhere for the moisture to go.'},
+      {wk:48,season:'fall',what:'Broodless oxalic treatment',pkgWhy:'Nowhere for a mite to hide once brood rearing stops, sets season two up clean.',nucWhy:'Same — cheap insurance for spring.'},
+      {wk:52,season:'fall',what:'Winter, heft, do not open',pkgWhy:'Tip the back up every few weeks; add fondant or dry sugar if it feels light. A hive opened in January is a hive that gets killed.',nucWhy:'Same — heft, solid feed if light, no inspections.'},
+      {wk:60,season:'spring',crit:true,what:'Late winter, the starvation window',pkgWhy:'First-year colonies die here, inches from honey they cannot reach. Heft often, put emergency sugar directly over the cluster.',nucWhy:'The most dangerous weeks of the year — heft often, solid feed over the cluster if there is any doubt.'},
+      {wk:67,season:'spring',what:'First spring, made it through',pkgWhy:'First inspection above about 55 F. Look for eggs, check stores, start the varroa plan over.',nucWhy:'Same — a warm still day, eggs, stores, restart the mite plan.'}
+    ];
+    const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const elStart=document.getElementById('fy_start');
+    if(elStart && !elStart.value) elStart.value=new Date().toISOString().slice(0,10);
+    on(['fy_start','fy_kind','fy_region'], ()=>{
+      const raw=val('fy_start'), kind=val('fy_kind'), shiftWeeks=parseFloat(val('fy_region'));
+      if(!raw){ document.getElementById('fy_plan').innerHTML=''; return out('fy_out','','Pick an install date above.'); }
+      const parts=raw.split('-').map(Number), yy=parts[0], mm=parts[1], dd=parts[2];
+      const install=new Date(yy,mm-1,dd), today=new Date(new Date().toDateString());
+      const fromInstall=n=>new Date(yy,mm-1,dd+n);
+      const fromCalendar=(wk,season)=>{ const nudge= season==='fall'?-shiftWeeks:shiftWeeks; const d=new Date(yy,0,1); d.setDate(d.getDate()+(wk+nudge)*7); if(d<install) d.setFullYear(d.getFullYear()+1); return d; };
+      const steps=STEPS.filter(s=>!(s.pkgOnly && kind!=='package')).map(s=>{
+        const off= s.d!=null ? s.d+(kind==='nuc'&&s.nucShift?s.nucShift:0) : null;
+        return {s:s,off:off,date: off!=null?fromInstall(off):fromCalendar(s.wk,s.season)};
+      }).sort((a,b)=>a.date-b.date);
+      let next=null;
+      document.getElementById('fy_plan').innerHTML = steps.map(row=>{
+        const s=row.s, off=row.off, date=row.date;
+        const past=date<today;
+        if(!past && !next) next={s:s,d:date};
+        const why= kind==='nuc' && s.nucWhy ? s.nucWhy : s.pkgWhy;
+        const stamp= off===0?'':off!=null?' - day '+off:'';
+        return '<div style="margin:10px 0;padding-left:10px;border-left:3px solid '+(s.crit?'#e0604d':'var(--amber)')+(past?';opacity:.45':'')+'">'+
+          '<div style="font-size:11px;text-transform:uppercase;color:var(--muted)">'+MONTHS[date.getMonth()]+' '+date.getDate()+stamp+'</div>'+
+          '<div style="font-weight:700">'+s.what+'</div>'+
+          '<div style="font-size:13px;color:var(--muted);margin-top:3px">'+why+'</div>'+
+        '</div>';
+      }).join('');
+      if(next){ out('fy_out','good','Next up — <b>'+next.s.what+'</b>, '+MONTHS[next.d.getMonth()]+' '+next.d.getDate()); }
+      else { out('fy_out','mid','Year one complete — carry on with the seasonal calendar and the varroa plan.'); }
+    });
+  }
+
+  // --- Hive weight log
+  function cHiveWeight(){
+    body('<div class="card"><h3>⚖️ Hive weight log</h3>'+
+      ci('Hive name','hw_hive','type="text" placeholder="Hive 1"')+
+      ci('Date','hw_date','type="date"')+
+      ci('Total weight (lb)','hw_lb','type="number" inputmode="decimal" step="0.5" min="0" placeholder="120"')+
+      '<button id="hw_add" style="margin-top:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--amber);color:#fff;font-weight:700">Add reading</button>'+
+      '<div id="hw_bar" style="margin:10px 0;display:flex;gap:6px;flex-wrap:wrap"></div>'+
+      '<div id="hw_out" class="cout"></div>'+
+      '<canvas id="hw_canvas" height="180" style="width:100%;display:block;margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:10px"></canvas>'+
+      '<div style="margin-top:14px">'+
+      ci('Empty hive weight (lb)','hw_tare','type="number" step="1" min="0" value="65"')+
+      cs('Winter stores target','hw_target','<option value="45">Mild south — zone 8 and warmer</option><option value="60">Upper south — zone 7</option><option value="80" selected>Mid-Atlantic — zone 6</option><option value="90">Northern — zone 5</option><option value="100">Far north — zone 4 and colder</option>')+
+      '<div id="hw_winter" class="cout"></div></div>'+
+      '<div id="hw_list" style="margin-top:12px;font-size:13.5px"></div>'+
+      '<div class="note">Readings are saved on this device only, no account, nothing sent anywhere. Clearing browser data clears these too.</div></div>');
+
+    const KEY='beeguide.weights.v1';
+    let data=[]; try{ data=JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ data=[]; }
+    let active=null;
+    function save2(){ try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){} }
+    function parseISO(s){ const p=s.split('-').map(Number); return new Date(p[0],p[1]-1,p[2]); }
+    function fmt2(d){ return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
+    function hivesList(){ return Array.from(new Set(data.map(r=>r.hive))).sort(); }
+    function forHive(h){ return data.filter(r=>r.hive===h).sort((a,b)=>a.date<b.date?-1:1); }
+
+    function drawChart(rows){
+      const c=document.getElementById('hw_canvas'); if(!c) return;
+      const ctx=c.getContext('2d');
+      const dpr=window.devicePixelRatio||1;
+      const W=c.width=c.clientWidth*dpr, H=c.height=180*dpr;
+      ctx.clearRect(0,0,W,H);
+      if(rows.length<2){
+        ctx.fillStyle='#999'; ctx.font=(13*dpr)+'px sans-serif'; ctx.textAlign='center';
+        ctx.fillText('Add two or more readings to see the line', W/2, H/2);
+        return;
+      }
+      const pad={l:40*dpr,r:10*dpr,t:10*dpr,b:22*dpr};
+      const t0=parseISO(rows[0].date).getTime(), t1=parseISO(rows[rows.length-1].date).getTime();
+      const span=Math.max(1,t1-t0);
+      const lbs=rows.map(r=>r.lb); let lo=Math.min.apply(null,lbs), hi=Math.max.apply(null,lbs);
+      if(hi-lo<10){ const mid=(hi+lo)/2; lo=mid-5; hi=mid+5; }
+      const padY=(hi-lo)*0.12; lo-=padY; hi+=padY;
+      const X=function(t){ return pad.l+(t-t0)/span*(W-pad.l-pad.r); };
+      const Y=function(v){ return H-pad.b-(v-lo)/(hi-lo)*(H-pad.t-pad.b); };
+      ctx.strokeStyle='#eee'; ctx.lineWidth=1*dpr; ctx.fillStyle='#999'; ctx.font=(10*dpr)+'px sans-serif';
+      ctx.textAlign='right'; ctx.textBaseline='middle';
+      for(let i=0;i<=3;i++){ const v=lo+(hi-lo)*i/3, y=Y(v); ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke(); ctx.fillText(String(Math.round(v)), pad.l-5*dpr, y); }
+      for(let i=1;i<rows.length;i++){
+        const a=rows[i-1], b=rows[i];
+        ctx.strokeStyle= b.lb>=a.lb ? '#7bc47f' : '#e0604d'; ctx.lineWidth=2.5*dpr;
+        ctx.beginPath(); ctx.moveTo(X(parseISO(a.date).getTime()),Y(a.lb)); ctx.lineTo(X(parseISO(b.date).getTime()),Y(b.lb)); ctx.stroke();
+      }
+      for(let i=0;i<rows.length;i++){ const r=rows[i]; ctx.fillStyle='#f0b429'; ctx.beginPath(); ctx.arc(X(parseISO(r.date).getTime()),Y(r.lb),3*dpr,0,7); ctx.fill(); }
+    }
+
+    function renderList(){
+      const hs=hivesList();
+      if(!hs.length){
+        document.getElementById('hw_bar').innerHTML='';
+        out('hw_out','','Add the first reading to get started.');
+        out('hw_winter','','');
+        document.getElementById('hw_list').innerHTML='<div class="note">No readings yet.</div>';
+        drawChart([]); return;
+      }
+      if(hs.indexOf(active)===-1) active=hs[0];
+      document.getElementById('hw_bar').innerHTML = hs.map(function(h){
+        return '<button data-h="'+h+'" style="padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:'+(h===active?'var(--amber)':'#fff')+';color:'+(h===active?'#fff':'inherit')+'">'+h+'</button>';
+      }).join('');
+      Array.prototype.forEach.call(document.getElementById('hw_bar').children, function(b){
+        b.onclick=function(){ active=b.dataset.h; renderList(); };
+      });
+      const rows=forHive(active);
+      drawChart(rows);
+      if(rows.length>=2){
+        const a=rows[rows.length-2], b=rows[rows.length-1];
+        const days=Math.max(1,(parseISO(b.date)-parseISO(a.date))/864e5);
+        const perDay=(b.lb-a.lb)/days;
+        let cls,label;
+        if(perDay>=3){cls='good';label='Strong flow, get supers on';}
+        else if(perDay>=1){cls='good';label='Gaining, flow is on';}
+        else if(perDay>=-0.2){cls='mid';label='Flat, flow has stopped';}
+        else if(perDay>=-0.5){cls='mid';label='Slow loss, normal dearth';}
+        else {cls='low';label='Losing fast, check on them';}
+        out('hw_out',cls,(perDay>=0?'+':'-')+Math.abs(perDay).toFixed(1)+' lb/day — <b>'+label+'</b><br>Between '+fmt2(parseISO(a.date))+' and '+fmt2(parseISO(b.date))+', '+(b.lb-a.lb>=0?'+':'-')+Math.abs(b.lb-a.lb).toFixed(1)+' lb total.');
+      } else {
+        out('hw_out','',rows[0].lb.toFixed(1)+' lb — add another reading to see the rate of change.');
+      }
+      const tare=num('hw_tare')||0, target=parseFloat(val('hw_target'));
+      const nowR=rows[rows.length-1], stores=Math.max(0,nowR.lb-tare), gap=stores-target;
+      out('hw_winter',gap>=0?'good':'low', 'Stores now: ~'+stores.toFixed(0)+' lb — '+(gap>=0?'+'+gap.toFixed(0)+' lb over target':gap.toFixed(0)+' lb short of target')+' ('+target+' lb).');
+      document.getElementById('hw_list').innerHTML = rows.slice().reverse().map(function(r,i,arr){
+        const prev=arr[i+1]; const ch= prev? r.lb-prev.lb : null; const idx=data.indexOf(r);
+        return '<div style="display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)">'+
+          '<span style="min-width:80px;color:var(--muted);font-size:12.5px">'+parseISO(r.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+'</span>'+
+          '<span style="font-weight:700;min-width:60px">'+r.lb.toFixed(1)+' lb</span>'+
+          '<span style="font-size:12.5px;color:'+(ch===null?'inherit':ch>=0?'#3a8a44':'#c0392b')+'">'+(ch===null?'':(ch>=0?'+':'-')+Math.abs(ch).toFixed(1)+' lb')+'</span>'+
+          '<button data-i="'+idx+'" style="margin-left:auto;background:none;border:none;color:#c0392b;font-weight:700;font-size:16px">x</button></div>';
+      }).join('');
+      Array.prototype.forEach.call(document.getElementById('hw_list').querySelectorAll('button'), function(b){
+        b.onclick=function(){ data.splice(+b.dataset.i,1); save2(); renderList(); };
+      });
+    }
+    document.getElementById('hw_add').onclick=function(){
+      const hive=(val('hw_hive')||'Hive 1').trim(), date=val('hw_date'), lb=parseFloat(val('hw_lb'));
+      if(!date||!isFinite(lb)){ alert('Need a date and a weight.'); return; }
+      data.push({hive:hive,date:date,lb:lb}); save2(); document.getElementById('hw_lb').value=''; active=hive; renderList();
+    };
+    ['hw_tare','hw_target'].forEach(function(id){ const el=document.getElementById(id); el.oninput=renderList; el.onchange=renderList; });
+    document.getElementById('hw_date').value=new Date().toISOString().slice(0,10);
+    renderList();
+  }
+
+  // --- Forage range
+  function cForage(){
+    body('<div class="card"><h3>🗺️ Forage range</h3>'+
+      cs('What the land looks like','fr_q','<option value="1.5">Poor — dense suburb or clean-edge row crop</option><option value="4" selected>Average — mixed farm, woodland, hedgerow</option><option value="9">Good — diverse pasture, orchards, old fields</option><option value="18">Excellent — heavy locust, clover, knotweed, basswood</option>')+
+      ci('Hives wanted in this yard','fr_hives','type="number" inputmode="numeric" min="1" step="1" value="8"')+
+      '<div id="fr_out" class="cout"></div>'+
+      '<div class="note">1 mile is about 2,011 acres, where most work happens. 2 miles is about 8,042 acres, the realistic working range used for capacity below. 3 miles is about 18,096 acres, they can, but it barely pays. Space yards at least 2 miles apart — what is inside the first mile matters far more than the third.</div></div>');
+    on(['fr_q','fr_hives'], ()=>{
+      const perSqMi=parseFloat(val('fr_q')), hives=Math.max(1,num('fr_hives')||1);
+      const workingSqMi=Math.PI*4, cap=Math.round(perSqMi*workingSqMi);
+      const acresPer=8042.5/hives;
+      const d=2,r=2, part=2*r*r*Math.acos(d/(2*r))-(d/2)*Math.sqrt(Math.max(0,4*r*r-d*d));
+      const overlap=Math.round(part/(Math.PI*r*r)*100);
+      const ratio=hives/cap;
+      let cls,label,sub;
+      if(ratio<=0.6){cls='good';label='Comfortable';sub='Well inside what this land carries, room to grow.';}
+      else if(ratio<=1){cls='good';label='About right';sub='Close to the sensible ceiling. Fine in an average year; watch a dry one.';}
+      else if(ratio<=1.6){cls='mid';label='Crowded';sub='About '+Math.round(ratio*100)+'% of capacity — expect a smaller crop per hive and more robbing in a dearth.';}
+      else {cls='low';label='Too many for this land';sub='About '+Math.round(ratio*100)+'% of capacity — move some hives at least two miles.';}
+      out('fr_out',cls,'<b>'+cap+' hives</b> is what this land supports, 2-mile ring — currently '+hives+' — <b>'+label+'</b><br>'+sub+
+        '<br>Acres per hive at this count: '+Math.round(acresPer).toLocaleString()+' — Overlap with a yard 2 mi away: '+overlap+'%');
+    });
+  }
 
   // --- Varroa mite wash
   function cMite(){
