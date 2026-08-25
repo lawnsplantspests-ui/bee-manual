@@ -229,7 +229,7 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {v:'varroa',   ic:'🪲', nm:'Varroa Treatments', sub:'Compare 16 mite treatments'},
     {v:'disease',  ic:'🩺', nm:'Disease & Pest ID', sub:'Spot it in the field'},
     {v:'calendar', ic:'📅', nm:'Seasonal Calendar', sub:'What to do this month (NE)'},
-    {v:'calc',     ic:'🧮', nm:'Calculators', sub:'21 field calculators'},
+    {v:'calc',     ic:'🧮', nm:'Calculators', sub:'22 field calculators'},
     {v:'facts',    ic:'📐', nm:'Quick Reference', sub:'Key numbers & rules of thumb'},
     {v:'quiz',     ic:'📝', nm:'Practice Test', sub:D.quiz.length+' questions, exam prep'},
     {v:'oral',     ic:'🎤', nm:'Oral Exam Prep', sub:'Topics, template & talking points'},
@@ -394,6 +394,7 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {id:'firstyr',ic:'🌱', nm:'First-year plan'},
     {id:'hwt',   ic:'⚖️', nm:'Hive weight log'},
     {id:'forage',ic:'🗺️', nm:'Forage range'},
+    {id:'miterepro',ic:'🔬', nm:'Mite reproduction'},
   ];
 
   function ci(label, id, attrs){ return '<div class="cinput"><label>'+label+'</label><input id="'+id+'" '+attrs+'></div>'; }
@@ -413,7 +414,8 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     ({mite:cMite, syrup:cSyrup, oxalic:cOxalic, feed:cFeed, yield:cYield,
       moist:cMoist, queen:cQueen, color:cColor, patty:cPatty, mead:cMead, brood:cBrood,
       cstr:cColonyStrength, labl:cLabels, wax:cWax, hprice:cHoneyPrice, costs:cCosts,
-      nectar:cNectar, miteplan:cMitePlan, firstyr:cFirstYear, hwt:cHiveWeight, forage:cForage})[calcPick]();
+      nectar:cNectar, miteplan:cMitePlan, firstyr:cFirstYear, hwt:cHiveWeight, forage:cForage,
+      miterepro:cMiteRepro})[calcPick]();
   }
   function body(html){ document.getElementById('calcBody').innerHTML = html; }
 
@@ -903,6 +905,55 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     ['hw_tare','hw_target'].forEach(function(id){ const el=document.getElementById(id); el.oninput=renderList; el.onchange=renderList; });
     document.getElementById('hw_date').value=new Date().toISOString().slice(0,10);
     renderList();
+  }
+
+  // --- Varroa reproduction timeline
+  function cMiteRepro(){
+    function bar(events, totalDays){
+      let h = '<div style="position:relative;height:34px;background:#f4ecd6;border-radius:8px;margin:10px 0 26px">';
+      events.forEach(function(e){
+        const pct = Math.min(100, e.day / totalDays * 100);
+        h += '<div style="position:absolute;left:'+pct+'%;top:0;bottom:0;width:2px;background:'+e.color+'"></div>';
+        h += '<div style="position:absolute;left:'+pct+'%;top:38px;transform:translateX(-50%);font-size:10.5px;color:var(--muted);white-space:nowrap;text-align:center;line-height:1.3">'+e.label+'</div>';
+      });
+      h += '</div>';
+      return h;
+    }
+    const events = [
+      {day:0, label:'Cell<br>capped', color:'#7a5a14'},
+      {day:0.25, label:'Feeding<br>starts', color:'#a3760e'},
+      {day:2.5, label:'Egg 1<br>(male)', color:'#e6b23c'},
+      {day:3.75, label:'Egg 2<br>(female)', color:'#e6b23c'},
+      {day:5, label:'Egg 3<br>(female)', color:'#e6b23c'},
+      {day:6.25, label:'Egg 4<br>(female)', color:'#e6b23c'},
+      {day:7.5, label:'Egg 5<br>(female)', color:'#e6b23c'},
+      {day:8.75, label:'Egg 6<br>(female)', color:'#e6b23c'},
+      {day:11, label:'Worker<br>emerges', color:'#3a3026'},
+      {day:14.5, label:'Drone<br>emerges', color:'#3a3026'}
+    ];
+    body('<div class="card"><h3>🔬 Varroa reproduction timeline</h3>'+
+      '<div class="note">A foundress mite enters a brood cell just before it is capped, and everything after that runs on a fixed clock — this is why drone brood produces more mites than worker brood, and why queen cells barely produce any at all.</div>'+
+      '<h4 style="margin:16px 0 4px;font-size:14px">Hour by hour, from the moment the cell is capped</h4>'+
+      bar(events, 15)+
+      '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:6px">'+
+      '<tr><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Event</th><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Timing after capping</th></tr>'+
+      [['Foundress starts feeding on the pupa','Within about 6 hours'],
+       ['First egg laid — always male (unfertilized)','About 60 hours (2.5 days)'],
+       ['Each following egg — always female','Every ~30 hours after that, up to 6 eggs total'],
+       ['Egg to adult mite, either sex','8–10 days'],
+       ['Male mates with his sisters inside the cell, then dies there','Before the host bee emerges']
+      ].map(function(r){ return '<tr><td style="padding:5px 4px;border-bottom:1px solid var(--line)">'+r[0]+'</td><td style="padding:5px 4px;border-bottom:1px solid var(--line);color:var(--muted)">'+r[1]+'</td></tr>'; }).join('')+
+      '</table>'+
+      '<h4 style="margin:18px 0 4px;font-size:14px">Why the brood type matters</h4>'+
+      '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
+      '<tr><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Brood type</th><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Capped period</th><th style="text-align:left;padding:5px 4px;border-bottom:1px solid var(--line)">Mated daughters produced</th></tr>'+
+      [['Queen','About 7 days','Essentially none — shorter than the 8–10 days a single egg needs just to reach adulthood, so a cycle almost never finishes in time'],
+       ['Worker','About 11–12 days','1–2 (averages around 1.5)'],
+       ['Drone','About 14–15 days','2–3 (averages around 2.5) — the extra 3–4 days of capped time is enough to mature one more daughter']
+      ].map(function(r){ return '<tr><td style="padding:5px 4px;border-bottom:1px solid var(--line)"><b>'+r[0]+'</b></td><td style="padding:5px 4px;border-bottom:1px solid var(--line)">'+r[1]+'</td><td style="padding:5px 4px;border-bottom:1px solid var(--line);color:var(--muted)">'+r[2]+'</td></tr>'; }).join('')+
+      '</table>'+
+      '<div class="note" style="margin-top:14px">This is the actual mechanism behind drone brood removal as a mite control: pulling and freezing a frame of capped drone brood removes a disproportionate share of the mites that are actively reproducing in the colony, since each drone cell was worth roughly 65% more mites than a worker cell would have produced. It is also why a queen cell caught up in a mite wash is nearly always a false alarm rather than a sign of a mite problem specific to queens.</div>'+
+      '<div class="note">Sources: USDA ARS Carl Hayden Bee Research Center and the Australian National Varroa Mite Management Program. Figures are field averages, not a guarantee for any one cell — real colonies vary.</div></div>');
   }
 
   // --- Forage range
