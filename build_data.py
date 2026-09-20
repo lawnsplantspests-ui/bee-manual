@@ -21,16 +21,6 @@ QUICKFACTS = [
  ["Guanine crystals", "Small white crystals on the ceilings of brood cells = high Varroa mite levels."],
 ]
 
-VARROA = [
- {"name":"Apiguard", "ai":"Thymol", "cls":"Essential oil", "method":"Tray with gel sits on brood frames", "eff":"74–95%", "cost":"$3.30–$6.80", "dur":"28 days (two 14-day applications)", "supers":"No — supers off", "wait":"Can super immediately after treatment ends", "temp":"Needs warmth — roughly 60–105°F to vaporize properly"},
- {"name":"Api Life Var", "ai":"Thymol, eucalyptus oil, menthol", "cls":"Essential oil", "method":"Tablets placed on the corners of the brood nest", "eff":"70–90%", "cost":"$4.48–$7.12", "dur":"21–30 days (3 applications, 7–10 days apart)", "supers":"No — supers off", "wait":"1 month after treatment ends", "temp":"Needs warmth — roughly 60–105°F"},
- {"name":"MiteAway Quick Strips (MAQS)", "ai":"Formic acid", "cls":"Organic acid", "method":"Pads placed on the brood nest", "eff":"61–98%", "cost":"$4.40–$7.25", "dur":"7 days", "supers":"Yes — can be left on during treatment", "wait":"Supers can stay on", "temp":"Moderate temps only — about 50–85°F (too hot can kill brood/queen)"},
- {"name":"Oxalic Acid", "ai":"Oxalic acid dihydrate", "cls":"Organic acid", "method":"Dribble on brood nest, or vaporize at entrance", "eff":"82–99%", "cost":"$0.25–$0.37", "dur":"10 minutes", "supers":"No — supers off", "wait":"2 weeks", "temp":"Best when brood is low/absent (late fall, broodless). Works in cool weather."},
- {"name":"HopGuard II", "ai":"Hops beta acids", "cls":"Organic acid", "method":"Strips inserted in the brood nest", "eff":"75–99%", "cost":"$3.33–$3.80", "dur":"28 days", "supers":"Yes — can be left on during treatment", "wait":"Supers can stay on", "temp":"Wide range"},
- {"name":"Apivar", "ai":"Amitraz", "cls":"Synthetic", "method":"Insert strips into the brood nest", "eff":"95%", "cost":"$5.00–$6.90", "dur":"42–56 days", "supers":"No — supers off", "wait":"2 weeks", "temp":"Wide range"},
-]
-VARROA_NOTE = "Apistan and CheckMite+ are NOT recommended — they stay in wax for years and mites have developed resistance. Rotate treatments, remove strips promptly, and follow IPM. Resistance to Apivar has also been seen. Always monitor mite levels after treating to confirm it worked. Efficacy figures: Honey Bee Health Coalition, Tools for Varroa Management, 5th ed."
-
 INSPECT = [
  {"h":"Before you open", "items":[
    "Set your objective for this visit — why are you in the hive today?",
@@ -96,10 +86,15 @@ LIBRARY = json.load(open(r"C:\Users\leasy\bee-manual\library.json", encoding="ut
 QUIZ = json.load(open(r"C:\Users\leasy\bee-manual\quiz.json", encoding="utf-8"))
 # Oral-exam prep + seasonal calendar
 from study_data import ORAL, CALENDAR
+# Varroa treatment cards (16) and the mixing recipes
+from varroa_data import VARROA, VARROA_NOTE
+from recipe_data import RECIPES, CATS as RECIPE_CATS
 
 DATA = {"glossary": G, "quickfacts": QUICKFACTS, "varroa": VARROA, "varroaNote": VARROA_NOTE,
         "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY, "quiz": QUIZ,
-        "oral": ORAL, "calendar": CALENDAR}
+        "oral": ORAL, "calendar": CALENDAR,
+        "recipes": RECIPES, "recipeCats": RECIPE_CATS}
 out = json.dumps(DATA, ensure_ascii=False, separators=(",",":"))
 open(r"C:\Users\leasy\bee-manual\data.json","w",encoding="utf-8").write(out)
-print("data.json:", len(out), "bytes |", len(G), "glossary terms")
+print("data.json:", len(out), "bytes |", len(G), "glossary terms |",
+      len(VARROA), "varroa cards |", len(RECIPES), "recipes")
