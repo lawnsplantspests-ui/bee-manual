@@ -259,14 +259,25 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     {v:'facts',    ic:'📐', nm:'Quick Reference', sub:'Key numbers & rules of thumb'},
     {v:'quiz',     ic:'📝', nm:'Practice Test', sub:D.quiz.length+' questions, exam prep'},
     {v:'oral',     ic:'🎤', nm:'Oral Exam Prep', sub:'Topics, template & talking points'},
-    {v:'library',  ic:'📚', nm:'Course Library', sub:'All your course files'},
+    {v:'library',  ic:'📚', nm:'Course Library', sub:'All your course files — full text searchable'},
   ];
+
+  // Full course text (course.json, built by build_course.py). Loaded in the background so the
+  // home screen isn't held up; the service worker keeps a copy for offline use.
+  let COURSE = null, courseErr = false, docFromSearch = '', searchScroll = 0;
+  fetch('course.json').then(r=>r.json()).then(c=>{
+    c.low = c.pages.map(p=>p[2].toLowerCase());
+    COURSE = c;
+    if(q.value.trim()) render();
+  }).catch(()=>{ courseErr = true; });
 
   let quiz = null;    // active practice-test session
   let curDoc = null;  // file open in the in-app viewer
   function go(v){ view=v; if(v!=='glossary') alpha=''; if(v!=='quiz') quiz=null;
     q.value=''; clr.classList.remove('show'); window.scrollTo(0,0); render(); }
   back.onclick = ()=>{
+    if(view==='doc' && docFromSearch){ q.value=docFromSearch; docFromSearch=''; curDoc=null; view='home';
+      clr.classList.add('show'); render(); window.scrollTo(0, searchScroll); return; }
     if(view==='doc'){ curDoc=null; view='library'; return render(); }
     if(view==='quiz' && quiz){ quiz=null; return render(); }
     go('home');
@@ -280,7 +291,7 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
         varroa:'Varroa Treatments',recipes:'Recipes',disease:'Disease & Pest ID',brood:'Brood Diseases',facts:'Quick Reference',
         quiz:'Practice Test', library:'Course Library', doc:(curDoc?curDoc.title:'File'),
         calendar:'Seasonal Calendar', calc:'Calculators', oral:'Oral Exam Prep'}[view]);
-    if(term){ app.innerHTML = renderSearch(term); bindGlossary(); bindRecipes(); return; }
+    if(term){ app.innerHTML = renderSearch(term); bindGlossary(); bindRecipes(); bindCourse(); return; }
     if(view==='home') return renderHome();
     if(view==='doc') return renderDoc();
     if(view==='calendar') return renderCalendar();
@@ -1563,7 +1574,7 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
 
   function renderLibrary(){
     app.innerHTML =
-      '<p class="lead">Your full Cornell Master Beekeeping course. Tap any file to open it.</p>'+
+      '<p class="lead">Your full Cornell Master Beekeeping course. Tap any file to open it — or type in the search box above to search the text of every transcript, glossary and handout.</p>'+
       '<div class="lib">'+
       D.library.map(m=>`<h3>${esc(m.mod)}</h3>`+
         m.files.map((f,fi)=>{
@@ -1579,14 +1590,64 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
     });
   }
 
-  function openDoc(f){ curDoc=f; view='doc'; window.scrollTo(0,0); render(); }
+  function openDoc(f, page){ curDoc=Object.assign({}, f, {page: page||0}); view='doc'; window.scrollTo(0,0); render(); }
   function renderDoc(){
-    const f = curDoc, src = LIB_BASE + f.url;
+    const f = curDoc, src = LIB_BASE + f.url + (f.page ? '#page='+f.page : '');
     app.innerHTML =
-      `<div class="dochead"><div class="docname">${esc(f.title)}</div>`+
+      `<div class="dochead"><div class="docname">${esc(f.title)}${f.page?' <span class="muted" style="font-size:12px">· page '+f.page+'</span>':''}</div>`+
       `<a class="docopen" href="${src}" target="_blank" rel="noopener">Open ↗</a></div>`+
-      `<div class="docnote">Tap <b>‹ Back</b> above to return to the library. If the preview doesn’t load, use <b>Open ↗</b>.</div>`+
+      `<div class="docnote">Tap <b>‹ Back</b> above to return to ${docFromSearch?'your search':'the library'}. If the preview doesn’t load, use <b>Open ↗</b>.</div>`+
       `<iframe class="docframe" src="${src}" title="${esc(f.title)}"></iframe>`;
+  }
+
+  // ---- course full-text search ----
+  const COURSE_SHOW = 40;
+  let courseAll = false;   // "show all" toggle for the current search
+  function courseSnippet(text, low, words){
+    // Centre on the whole phrase if it appears, otherwise on the longest (usually rarest) word.
+    let at = low.indexOf(words.join(' '));
+    if(at<0){ const w = words.slice().sort((x,y)=>y.length-x.length)[0]; at = low.indexOf(w); }
+    let a = Math.max(0, at-110), b = Math.min(text.length, at+190);
+    if(a>0){ const sp = text.indexOf(' ', a); if(sp>0 && sp<at) a = sp+1; }
+    if(b<text.length){ const sp = text.lastIndexOf(' ', b); if(sp>at) b = sp; }
+    return (a>0?'… ':'')+hl(text.slice(a,b),words)+(b<text.length?' …':'');
+  }
+  function courseResults(words){
+    if(words.join('').length < 3) return '';
+    if(!COURSE) return '<div class="res-group">Course text</div><div class="note">'+
+      (courseErr ? 'Course text isn’t downloaded yet — open the app once with signal and it will be saved for offline use.'
+                 : 'Loading the course text…')+'</div>';
+    const hits = [];
+    COURSE.low.forEach((l,i)=>{
+      if(!words.every(w=>l.includes(w))) return;
+      let score = 0;
+      words.forEach(w=>{ let k = l.indexOf(w); while(k>=0 && score<200){ score++; k = l.indexOf(w, k+w.length); } });
+      if(words.length>1 && l.includes(words.join(' '))) score += 1000;   // exact phrase ranks first
+      hits.push([score, i]);
+    });
+    if(!hits.length) return '';
+    hits.sort((x,y)=>y[0]-x[0]);
+    const shown = courseAll ? hits : hits.slice(0, COURSE_SHOW);
+    let h = '<div class="res-group">Course text ('+hits.length+' page'+(hits.length===1?'':'s')+')</div>';
+    h += shown.map(([s,i])=>{
+      const [fi, pg, text] = COURSE.pages[i], f = COURSE.files[fi];
+      return `<button class="card chit" data-i="${i}" style="display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer">`+
+        `<div style="font-size:12px;color:var(--muted);margin-bottom:4px">${esc(f.m)} · <b>${esc(f.t)}</b> · page ${pg}</div>`+
+        `<div style="font-size:14px;line-height:1.5">${courseSnippet(text, COURSE.low[i], words)}</div></button>`;
+    }).join('');
+    if(hits.length > shown.length)
+      h += `<button class="btn" id="courseMore" style="width:100%;margin:6px 0 14px">Show all ${hits.length} pages</button>`;
+    return h;
+  }
+  function bindCourse(){
+    app.querySelectorAll('.chit').forEach(b=>b.onclick=()=>{
+      const [fi, pg] = COURSE.pages[+b.dataset.i], f = COURSE.files[fi];
+      docFromSearch = q.value; searchScroll = window.scrollY;
+      q.value=''; clr.classList.remove('show');
+      openDoc({title: f.t, url: f.u}, pg);
+    });
+    const more = document.getElementById('courseMore');
+    if(more) more.onclick=()=>{ courseAll = true; render(); };
   }
 
   // ---- search across everything ----
@@ -1637,13 +1698,14 @@ window.DATA = {"glossary":[{"t":"abdomen","a":"","d":"The abdomen is one of thre
       html+='<div class="res-group">Inspection Checklist</div>';
       html+=ins.map(p=>`<div class="card"><div class="muted" style="font-size:12px">${esc(p[0])}</div><div style="font-size:14.5px">${hl(p[1],words)}</div></div>`).join('');
     }
+    html+=courseResults(words);
     if(!html) html='<div class="empty">No matches for “'+esc(term)+'”.<br>Try a single keyword like <b>varroa</b>, <b>swarm</b>, or <b>queen</b>.</div>';
     return html;
   }
 
   // search input
   let t=null;
-  q.addEventListener('input',()=>{ clr.classList.toggle('show', !!q.value);
+  q.addEventListener('input',()=>{ clr.classList.toggle('show', !!q.value); courseAll = false;
     clearTimeout(t); t=setTimeout(render, 120); });
   clr.onclick=()=>{ q.value=''; clr.classList.remove('show'); render(); q.focus(); };
 

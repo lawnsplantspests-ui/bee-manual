@@ -1,13 +1,14 @@
 // Bee Field Guide — offline service worker
 // Bump CACHE version whenever index.html changes so phones pull the new copy.
-const CACHE = 'bee-guide-v5';
+const CACHE = 'bee-guide-v6';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './course.json'
 ];
 
 self.addEventListener('install', e => {

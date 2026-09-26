@@ -28,6 +28,10 @@ python assemble.py                   # injects data.json into index.html
 
 (Glossary source: `beekeeping_glossary master.txt` → `parse_glossary.py` → `glossary.json`.)
 
+Course full-text search: `python build_course.py` reads every PDF in `library.json` and writes
+`course.json` (one entry per page). The app loads it in the background and the service worker
+keeps it for offline use. Re-run it whenever files are added to the library.
+
 After changing `index.html`, bump the `CACHE` version in `sw.js` so phones pull the new copy.
 
 ## Deploy
