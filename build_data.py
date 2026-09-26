@@ -73,7 +73,8 @@ DISEASE = [
  {"name":"European Foulbrood (EFB)", "type":"Bacteria (Melissococcus plutonius)", "look":"Twisted, melted-looking larvae that turn brown/yellow and die BEFORE capping. Goopy but ropes less than AFB (up to ~1.5 cm). Often a sour smell.", "do":"Often clears with a strong nectar flow, requeening, or comb rotation. Confirm vs AFB — when unsure, send a sample."},
  {"name":"Chalkbrood", "type":"Fungus (Ascosphaera apis)", "look":"Larvae turn into hard, chalky white (sometimes black/blue-spotted) 'mummies' that rattle in cells or show up on the bottom board / at the entrance. Larvae stand up in the cell; easily scraped out, doesn't rope.", "do":"Usually stress-related. Improve ventilation, requeen for hygienic stock, keep colonies strong."},
  {"name":"Sacbrood", "type":"Virus", "look":"Fluid-filled, sac-like larvae lying flat. Larvae turn brown and settle to the bottom of the cell, head often dark and curled ('canoe' / Chinese-slipper shape).", "do":"Usually self-limiting in a strong colony. Requeen if persistent."},
- {"name":"Nosema", "type":"Gut fungus (N. apis / N. ceranae)", "look":"Dysentery — brown streaks on/around the hive (N. apis especially). Crawling bees unable to fly, decreased adult population, dwindling.", "do":"Reduce stress, improve ventilation, replace old comb. Confirm by spore count if needed."},
+ {"name":"Nosema apis", "type":"Gut parasite (Nosema / Vairimorpha apis)", "look":"Dysentery — brown streaks on frames, hive front and lid, worst late winter / early spring after long confinement. Crawling bees that can't fly. Cluster shrinks fast coming out of winter.", "do":"The ONLY nosema that causes dysentery — but dysentery alone isn't proof (cold confinement, bad stores cause it too). Confirm by spore count. Swap soiled comb, keep hive dry and ventilated, clean stores."},
+ {"name":"Nosema ceranae", "type":"Gut parasite (Nosema / Vairimorpha ceranae)", "look":"Usually NO dysentery. Slow dwindling for no obvious reason, any time of year — foragers die away from the hive, so fewer bees but no dead pile out front. Brood and stores left with too few bees to cover them. Poor honey crop.", "do":"Now the more common nosema in N. America and easy to miss because it doesn't streak. Only a microscope (spore shape) or lab test tells it from N. apis. Strong, well-fed colonies, young queens, new comb; spore-count any colony that dwindles without a clear cause."},
  {"name":"Tracheal mite", "type":"Mite (Acarapis woodi)", "look":"K-wing (wings held at odd angles), crawling bees that can't fly, discolored tracheae under magnification.", "do":"Less common now. Grease patties and resistant stock help."},
  {"name":"Wax moth", "type":"Pest (Galleria / Achroia)", "look":"Silk webbing and tunnels through comb, especially in weak colonies or stored comb. Larvae burrow under cappings (bald-brood trails).", "do":"A symptom of a weak colony — strengthen or combine. Protect stored comb (freeze frames, store cool & airy)."},
  {"name":"Small hive beetle", "type":"Pest (Aethina tumida)", "look":"Small fast black beetles running on frames; slimy, fermented 'sliming' of comb; larvae in the honey.", "do":"Keep colonies strong, reduce open space, use beetle traps. Worse in warm, humid conditions."},
@@ -89,11 +90,14 @@ from study_data import ORAL, CALENDAR
 # Varroa treatment cards (16) and the mixing recipes
 from varroa_data import VARROA, VARROA_NOTE
 from recipe_data import RECIPES, CATS as RECIPE_CATS
+# Brood disease side-by-side (shared with The Bee Bench)
+from brood_data import BROOD, COLUMNS as BROOD_COLS, STEPS as BROOD_STEPS, TESTS as BROOD_TESTS
 
 DATA = {"glossary": G, "quickfacts": QUICKFACTS, "varroa": VARROA, "varroaNote": VARROA_NOTE,
         "inspect": INSPECT, "disease": DISEASE, "library": LIBRARY, "quiz": QUIZ,
         "oral": ORAL, "calendar": CALENDAR,
-        "recipes": RECIPES, "recipeCats": RECIPE_CATS}
+        "recipes": RECIPES, "recipeCats": RECIPE_CATS,
+        "brood": BROOD, "broodCols": BROOD_COLS, "broodSteps": BROOD_STEPS, "broodTests": BROOD_TESTS}
 out = json.dumps(DATA, ensure_ascii=False, separators=(",",":"))
 open(r"C:\Users\leasy\bee-manual\data.json","w",encoding="utf-8").write(out)
 print("data.json:", len(out), "bytes |", len(G), "glossary terms |",
